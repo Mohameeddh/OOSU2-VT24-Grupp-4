@@ -8,5 +8,6 @@ namespace EntitetsLager
 {
     internal class TEST
     {
+        public string test;
     }
 }
