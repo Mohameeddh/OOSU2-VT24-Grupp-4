@@ -21,6 +21,12 @@
         {
             get; private set;
         }
+
+        public Repository<Läkemedel> LäkemedelRepository 
+        { 
+            get; private set; 
+        }
+
         /// <summary>
         /// Create a new instance.
         /// </summary>
