@@ -27,7 +27,7 @@ namespace EntitetsLager
             this.PatientNummer = patientNummer;
         }
 
-        public void BokaNyttBesök(int besöksNummer, DateTime datum, string besöksSyfte, VårdPersonal anställningsNummer)
+        public void BokaNyttBesök(int besöksNummer, DateTime datum, LäkarBesök besöksSyfte, VårdPersonal anställningsNummer)
         {
             LäkarBesök NyttLäkarBesök = new LäkarBesök(besöksNummer, this, datum, besöksSyfte, anställningsNummer);
         }
