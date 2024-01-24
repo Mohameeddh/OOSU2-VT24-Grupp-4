@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataLager
+namespace EntitetsLager
 {
-    internal class Program
+    internal class TEST
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
