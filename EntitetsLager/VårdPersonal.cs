@@ -13,5 +13,14 @@ namespace EntitetsLager
         public string YrkesRoll { get; set; }
         public int Lösenord {  get; set; }
         public string Specialisering { get; set; }
+
+        public VårdPersonal(int anställningsNummer, string namn, string yrkesRoll, int lösenord, string specialicering) 
+        {
+            this.AnställningsNummer = anställningsNummer;
+            this.Namn = namn;
+            this.YrkesRoll= yrkesRoll;
+            this.Lösenord = lösenord;
+            this.Specialisering = specialicering;
+        }
     }
 }
