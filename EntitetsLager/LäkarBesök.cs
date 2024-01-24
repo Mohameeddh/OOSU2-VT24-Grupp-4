@@ -8,16 +8,14 @@ namespace EntitetsLager
 {
     public class LäkarBesök
     {
-        private Patient patient;
-        private DateTime datum;
-
         public Patient PatientNummer { get; set; }
         public int BesöksNummer { get; set; }
         public DateTime BesöksDatum { get; set; }
         public TimeOnly Tid { get; set; }
         public VårdPersonal AnställningsNummer { get; set; }
         public string BesöksSyfte { get; set; }
-        public Patient Patienter {  get; set; }
+        public List<Patient> Patienter = new List<Patient>();
+
 
        
         public LäkarBesök(Patient patientNummer, int besöksNummer, DateTime besöksDatum, TimeOnly tid, VårdPersonal anställningsNummer, string besöksSyfte)

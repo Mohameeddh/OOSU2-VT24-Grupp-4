@@ -5,11 +5,19 @@
     /// </summary>
     public class UnitOfWork
     {
-        public Repository<Foo> FooRepository
+        public Repository<Patient> PatientRepository
         {
             get; private set;
         }
-        public Repository<Bar> BarRepository
+        public Repository<VårdsPersonal> VårdsPersonalRepository
+        {
+            get; private set;
+        }
+        public Repository<Diagnos> DiagnosRepository
+        {
+            get; private set;
+        }
+        public Repository<LäkarBesök> LäkarBesökRepository
         {
             get; private set;
         }
