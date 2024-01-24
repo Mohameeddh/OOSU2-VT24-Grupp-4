@@ -12,6 +12,7 @@ namespace EntitetsLager
         public int BesöksNummer { get; set; }
         public DateTime BesöksDatum { get; set; }
         public TimeOnly Tid { get; set; }
+        public int ålder { get; set; }
         public VårdPersonal AnställningsNummer { get; set; }
         public string BesöksSyfte { get; set; }
         public Patient Patienter {  get; set; }
