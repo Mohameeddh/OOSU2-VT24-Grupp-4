@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using EntitetsLager;
-namespace DataLayer
+﻿namespace DataLayer
 {
     /// <summary>
     /// This class is used to access the storage in the application.
