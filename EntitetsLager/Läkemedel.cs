@@ -13,5 +13,13 @@ namespace EntitetsLager
         public string Dosering {  get; set; }
 
         public Patient PatientNummer { get; set; }
+
+        public Läkemedel(DateTime utskrivningsDatum, string medicinNamn, string dosering, Patient patientNummer)
+        {
+            UtskrivningsDatum = utskrivningsDatum;
+            MedicinNamn = medicinNamn;
+            Dosering = dosering;
+            PatientNummer = patientNummer;
+        }
     }
 }

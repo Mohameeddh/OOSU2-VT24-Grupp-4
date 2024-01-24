@@ -17,7 +17,7 @@ namespace EntitetsLager
         public string BesöksSyfte { get; set; }
         public Patient Patienter {  get; set; }
 
-        public LäkarBesök(Patient patientnummer, int besöksNummer, DateTime besöksDatum, TimeOnly tid, VårdPersonal anställningsNummer, string besöksSyfte)
+        public LäkarBesök(Patient patientNummer, int besöksNummer, DateTime besöksDatum, TimeOnly tid, VårdPersonal anställningsNummer, string besöksSyfte)
         {
             PatientNummer = patientNummer;
             BesöksNummer = besöksNummer;
