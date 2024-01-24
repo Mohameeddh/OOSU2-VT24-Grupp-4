@@ -17,14 +17,15 @@ namespace EntitetsLager
         public string BesöksSyfte { get; set; }
         public Patient Patienter {  get; set; }
 
+       
         public LäkarBesök(Patient patientNummer, int besöksNummer, DateTime besöksDatum, TimeOnly tid, VårdPersonal anställningsNummer, string besöksSyfte)
         {
-            PatientNummer = patientNummer;
-            BesöksNummer = besöksNummer;
-            BesöksDatum = besöksDatum;
-            Tid = tid;
-            AnställningsNummer = anställningsNummer;
-            BesöksSyfte = besöksSyfte;
+            this.PatientNummer = patientNummer;
+            this.BesöksNummer = besöksNummer;
+            this.BesöksDatum = besöksDatum;
+            this.Tid = tid;
+            this.AnställningsNummer = anställningsNummer;
+            this.BesöksSyfte = besöksSyfte;
         }
     }
 }

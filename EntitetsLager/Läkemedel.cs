@@ -16,10 +16,10 @@ namespace EntitetsLager
 
         public Läkemedel(DateTime utskrivningsDatum, string medicinNamn, string dosering, Patient patientNummer)
         {
-            UtskrivningsDatum = utskrivningsDatum;
-            MedicinNamn = medicinNamn;
-            Dosering = dosering;
-            PatientNummer = patientNummer;
+            this.UtskrivningsDatum = utskrivningsDatum;
+            this.MedicinNamn = medicinNamn;
+            this.Dosering = dosering;
+            this.PatientNummer = patientNummer;
         }
     }
 }
