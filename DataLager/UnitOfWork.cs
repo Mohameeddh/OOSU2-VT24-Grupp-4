@@ -33,10 +33,10 @@
         { }
         private void Fill()
         {
-            FooRepository.Add(new Foo(/* ... */);
-            FooRepository.Add(new Foo(/* ... */);
-            FooRepository.Add(new Foo(/* ... */);
-            FooRepository.Add(new Foo(/* ... */);
+            FooRepository.Add(new Foo(/* ... */));
+            FooRepository.Add(new Foo(/* ... */));
+            FooRepository.Add(new Foo(/* ... */));
+            FooRepository.Add(new Foo(/* ... */));
             BarRepository.Add(new Bar(/* ... */));
             BarRepository.Add(new Bar(/* ... */));
         }
