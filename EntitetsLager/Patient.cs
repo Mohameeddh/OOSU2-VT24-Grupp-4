@@ -15,7 +15,7 @@ namespace EntitetsLager
         public string Epost { get; set; }
         public int PatientNummer { get; set; }
 
-        public LäkarBesök LäkarbesökLista;
+        public List<LäkarBesök> LäkarbesökLista = new List<LäkarBesök>();
 
         public Patient(string namn, int personNummer, string adress, string telefonNummer, string epost, int patientNummer)
         {
@@ -27,10 +27,10 @@ namespace EntitetsLager
             this.PatientNummer = patientNummer;
         }
 
-        public void BokaNyttBesök(int besöksNummer, DateTime datum, LäkarBesök besöksSyfte, VårdPersonal anställningsNummer)
+       /* public void BokaNyttBesök(int besöksNummer, DateTime datum, LäkarBesök besöksSyfte, VårdPersonal anställningsNummer)
         {
             LäkarBesök NyttLäkarBesök = new LäkarBesök(besöksNummer, this, datum, besöksSyfte, anställningsNummer);
-        }
+        }*/
 
     }
 }
