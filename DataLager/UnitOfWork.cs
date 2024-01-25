@@ -71,10 +71,6 @@ namespace DataLayer
             LäkarBesökRepository.Add(new LäkarBesök(1442, 353, new DateTime(2023, 09, 02), new TimeSpan(12, 00, 15), 133, "Problem med urinvägarna"));
             LäkarBesökRepository.Add(new LäkarBesök(1234, 371, new DateTime(2023, 12, 12), new TimeSpan(08, 30, 00), 144, "Smärta i bröstkorgen"));
             #endregion
-
-            //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
-            //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
-            //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
         }
     }
 }
