@@ -54,12 +54,24 @@ namespace DataLayer
         { }
         private void Fill()
         {
-            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 1723));
-            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 1221));
-            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 144));
-            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 123));
-            VårdsPersonalRepository.Add(new Läkare(144, "Stefan", "Allmänläkare", 123456, "Muskelskador"));
-            LäkarBesökRepository.Add(new LäkarBesök(1221, 12, new DateTime(2021, 09, 10), new TimeSpan(10, 10, 10), 19882, "Smärta i bröstkorgen"));
+            #region Patient
+            PatientRepository.Add(new Patient("Kalle", 870212, "Biragatan", 0313657953, "Kalle@hotmail.com", 1221));
+            PatientRepository.Add(new Patient("Ela", 761010, "toolstogatan", 0312734529, "Ela@hotmail.com", 1442));
+            PatientRepository.Add(new Patient("Tom", 640808, "Bansatogatan", 0311134958, "Tom@hotmail.com", 1234));
+            #endregion
+
+            #region Läkare
+            VårdsPersonalRepository.Add(new Läkare(122, "Jakob", "Psykolog", 123456, "Klinisk Psykologi"));
+            VårdsPersonalRepository.Add(new Läkare(133, "Ali", "Kirurg", 112233, "Urologi"));
+            VårdsPersonalRepository.Add(new Läkare(144, "Lina", "Specialistläkare", 654334, "Kardiologi"));
+            #endregion
+
+            #region LäkarBesök
+            LäkarBesökRepository.Add(new LäkarBesök(1221, 293, new DateTime(2023, 06, 07), new TimeSpan(09, 00, 00), 122, "Mår psykiskt dåligt"));
+            LäkarBesökRepository.Add(new LäkarBesök(1442, 353, new DateTime(2023, 09, 02), new TimeSpan(12, 00, 15), 133, "Problem med urinvägarna"));
+            LäkarBesökRepository.Add(new LäkarBesök(1234, 371, new DateTime(2023, 12, 12), new TimeSpan(08, 30, 00), 144, "Smärta i bröstkorgen"));
+            #endregion
+
             //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
             //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
             //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
