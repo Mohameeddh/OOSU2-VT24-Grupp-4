@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntitetsLager
+namespace EntitetLager
 {
     public class Patient
     {
         public string Namn { get; set; }
         public int PersonNummer { get; set; }
-        public string Adress {  get; set; } 
+        public string Adress { get; set; }
         public string TelefonNummer { get; set; }
         public string Epost { get; set; }
         public int PatientNummer { get; set; }
@@ -27,10 +27,10 @@ namespace EntitetsLager
             this.PatientNummer = patientNummer;
         }
 
-       /* public void BokaNyttBesök(int besöksNummer, DateTime datum, LäkarBesök besöksSyfte, VårdPersonal anställningsNummer)
-        {
-            LäkarBesök NyttLäkarBesök = new LäkarBesök(besöksNummer, this, datum, besöksSyfte, anställningsNummer);
-        }*/
+        /* public void BokaNyttBesök(int besöksNummer, DateTime datum, LäkarBesök besöksSyfte, VårdPersonal anställningsNummer)
+         {
+             LäkarBesök NyttLäkarBesök = new LäkarBesök(besöksNummer, this, datum, besöksSyfte, anställningsNummer);
+         }*/
 
     }
 }

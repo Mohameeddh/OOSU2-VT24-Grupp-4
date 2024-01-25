@@ -11,7 +11,6 @@ namespace Labb1Grupp4PatientHantering
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World");
-
             
 
             Console.ReadLine();

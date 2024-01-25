@@ -1,4 +1,7 @@
-﻿namespace DataLayer
+﻿
+using EntitetLager;
+
+namespace DataLayer
 {
     /// <summary>
     /// This class is used to access the storage in the application.
@@ -9,7 +12,7 @@
         {
             get; private set;
         }
-        public Repository<VårdsPersonal> VårdsPersonalRepository
+        public Repository<VårdPersonal> VårdsPersonalRepository
         {
             get; private set;
         }

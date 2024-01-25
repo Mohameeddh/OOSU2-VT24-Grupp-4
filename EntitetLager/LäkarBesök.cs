@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntitetsLager
+namespace EntitetLager
 {
     public class LäkarBesök
     {
@@ -17,7 +17,7 @@ namespace EntitetsLager
         public List<Patient> Patienter = new List<Patient>();
 
 
-       
+
         public LäkarBesök(Patient patientNummer, int besöksNummer, DateTime besöksDatum, TimeOnly tid, VårdPersonal anställningsNummer, string besöksSyfte)
         {
             this.PatientNummer = patientNummer;

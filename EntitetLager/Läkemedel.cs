@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntitetsLager
+namespace EntitetLager
 {
     public class Läkemedel
     {
-        public DateTime UtskrivningsDatum {  get; set; }
+        public DateTime UtskrivningsDatum { get; set; }
         public string MedicinNamn { get; set; }
-        public string Dosering {  get; set; }
+        public string Dosering { get; set; }
 
         public Patient PatientNummer { get; set; }
 
