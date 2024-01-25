@@ -1,5 +1,6 @@
-﻿
+﻿using System;
 using EntitetLager;
+using System.Diagnostics;
 
 namespace DataLayer
 {
@@ -12,7 +13,7 @@ namespace DataLayer
         {
             get; private set;
         }
-        public Repository<VårdPersonal> VårdsPersonalRepository
+        public Repository<Läkare> VårdsPersonalRepository
         {
             get; private set;
         }
@@ -35,10 +36,13 @@ namespace DataLayer
         /// </summary>
         public UnitOfWork()
         {
-            FooRepository = new Repository<Foo>();
-            BarRepository = new Repository<Bar>();
+            PatientRepository = new Repository<Patient>();
+            VårdsPersonalRepository = new Repository<Läkare>();
+            LäkarBesökRepository = new Repository<LäkarBesök>();
+            LäkemedelRepository = new Repository<Läkemedel>();
+            DiagnosRepository = new Repository<Diagnos>();
             // Initialize the tables if this is the first UnitOfWork.
-            if (FooRepository.IsEmpty())
+            if (PatientRepository.IsEmpty())
             {
                 Fill();
             }
@@ -50,12 +54,15 @@ namespace DataLayer
         { }
         private void Fill()
         {
-            FooRepository.Add(new Foo(/* ... */));
-            FooRepository.Add(new Foo(/* ... */));
-            FooRepository.Add(new Foo(/* ... */));
-            FooRepository.Add(new Foo(/* ... */));
-            BarRepository.Add(new Bar(/* ... */));
-            BarRepository.Add(new Bar(/* ... */));
+            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 1723));
+            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 1221));
+            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 144));
+            PatientRepository.Add(new Patient("Mohamed", 870812, "Banstogatan", 0311134958, "Mohamed@hotmail.com", 123));
+            VårdsPersonalRepository.Add(new Läkare(144, "Stefan", "Allmänläkare", 123456, "Muskelskador"));
+            LäkarBesökRepository.Add(new LäkarBesök(1221, 12, new DateTime(2021, 09, 10), new TimeSpan(10, 10, 10), 19882, "Smärta i bröstkorgen"));
+            //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
+            //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
+            //LäkarBesökRepository.Add(new LäkarBesök(/* ... */));
         }
     }
 }

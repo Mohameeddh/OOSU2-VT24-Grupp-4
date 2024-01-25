@@ -51,13 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EntitetsLager\EntitetsLager.csproj">
-      <Project>{f26c6c5f-1b6d-434f-b672-0edda82b5d24}</Project>
-      <Name>EntitetsLager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Labb1Grupp4PatientHantering\Labb1Grupp4PatientHantering.csproj">
-      <Project>{15efa60d-c88b-47c6-863b-ae794ed6ba11}</Project>
-      <Name>Labb1Grupp4PatientHantering</Name>
+    <ProjectReference Include="..\EntitetLager\EntitetLager.csproj">
+      <Project>{3DB7557D-76DE-44BA-A75C-6C0204A6C018}</Project>
+      <Name>EntitetLager</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

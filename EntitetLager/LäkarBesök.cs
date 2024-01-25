@@ -8,17 +8,17 @@ namespace EntitetLager
 {
     public class LäkarBesök
     {
-        public Patient PatientNummer { get; set; }
+        public int PatientNummer { get; set; }
         public int BesöksNummer { get; set; }
         public DateTime BesöksDatum { get; set; }
-        public TimeOnly Tid { get; set; }
-        public VårdPersonal AnställningsNummer { get; set; }
+        public TimeSpan Tid { get; set; }
+        public int AnställningsNummer { get; set; }
         public string BesöksSyfte { get; set; }
         public List<Patient> Patienter = new List<Patient>();
 
 
 
-        public LäkarBesök(Patient patientNummer, int besöksNummer, DateTime besöksDatum, TimeOnly tid, VårdPersonal anställningsNummer, string besöksSyfte)
+        public LäkarBesök(int patientNummer, int besöksNummer, DateTime besöksDatum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
         {
             this.PatientNummer = patientNummer;
             this.BesöksNummer = besöksNummer;

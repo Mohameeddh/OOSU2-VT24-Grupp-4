@@ -46,7 +46,7 @@
     <Compile Include="Läkemedel.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VårdPersonal.cs" />
+    <Compile Include="Läkare.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

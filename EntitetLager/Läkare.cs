@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitetLager
 {
-    public class VårdPersonal
+    public class Läkare
     {
         public int AnställningsNummer { get; set; }
         public string Namn { get; set; }
@@ -14,7 +14,7 @@ namespace EntitetLager
         public int Lösenord { get; set; }
         public string Specialisering { get; set; }
 
-        public VårdPersonal(int anställningsNummer, string namn, string yrkesRoll, int lösenord, string specialicering)
+        public Läkare(int anställningsNummer, string namn, string yrkesRoll, int lösenord, string specialicering)
         {
             this.AnställningsNummer = anställningsNummer;
             this.Namn = namn;
