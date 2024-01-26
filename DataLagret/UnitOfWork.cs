@@ -1,12 +1,12 @@
-﻿using System;
-using EntitetLager;
-using System.Diagnostics;
+﻿using EntitetLager;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace DataLayer
+namespace DataLagret
 {
-    /// <summary>
-    /// This class is used to access the storage in the application.
-    /// </summary>
     public class UnitOfWork
     {
         public Repository<Patient> PatientRepository
@@ -26,9 +26,9 @@ namespace DataLayer
             get; private set;
         }
 
-        public Repository<Läkemedel> LäkemedelRepository 
-        { 
-            get; private set; 
+        public Repository<Läkemedel> LäkemedelRepository
+        {
+            get; private set;
         }
 
         /// <summary>

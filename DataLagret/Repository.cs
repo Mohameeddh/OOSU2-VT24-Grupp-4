@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-namespace DataLayer
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataLagret
 {
-    /// <summary>
-    /// Generic repository class.
-    /// </summary>
     public class Repository<T>
-    where T : class
+   where T : class
     {
         /// <summary>
         /// Add a new entity to the Table.

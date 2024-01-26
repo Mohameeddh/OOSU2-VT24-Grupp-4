@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
 
-namespace Labb1Grupp4PatientHantering
+namespace Presentationslager
 {
-    class Program
+    internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
-            
-
-            Console.ReadLine();
+            Console.WriteLine("Hello Daniel");
+            Console.ReadKey();
         }
     }
 }
