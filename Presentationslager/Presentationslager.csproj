@@ -49,5 +49,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AffärsLager\AffärsLager.csproj">
+      <Project>{ca5e4067-c7f5-4810-a3df-6a8c9deff7e6}</Project>
+      <Name>AffärsLager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLagret\DataLagret.csproj">
+      <Project>{a4bab072-6c6e-45ba-806b-f4e918d82787}</Project>
+      <Name>DataLagret</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitetLager\EntitetLager.csproj">
+      <Project>{3db7557d-76de-44ba-a75c-6c0204a6c018}</Project>
+      <Name>EntitetLager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
