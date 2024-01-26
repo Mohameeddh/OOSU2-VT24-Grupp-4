@@ -10,7 +10,7 @@ namespace Presentationslager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Daniel");
+            Console.WriteLine("Hello benji");
             Console.ReadKey();
         }
     }

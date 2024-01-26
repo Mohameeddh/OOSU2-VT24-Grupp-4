@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataLayer;
+using DataLagret;
 using EntitetLager;
 
 namespace AffärsLager
 {
     public class Kontroller
     {
+
     }
 }
