@@ -18,27 +18,8 @@ namespace Presentationslager
 
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             Console.WriteLine("Välkommen till Patienthanteringssystemet\n");
             Console.WriteLine("Var god och logga in\n");
-=======
-            HuvudMeny();
-        }
-
-        private Program()
-        {
-             kontroller = new Kontroller();
-             unitOfWork = new UnitOfWork();
-
-        }
-
-        private void Inloggning()
-        {
-            Console.WriteLine("Välkommen till Patienthanteringssystemet");
-            Console.WriteLine();
-            Console.WriteLine("Var god och logga in");
-            Console.WriteLine();
->>>>>>> 7d2e5fa92fb5fdd20023674e1601ea8778cdf069
 
             bool logg = false;
 
