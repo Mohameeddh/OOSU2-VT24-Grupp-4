@@ -114,10 +114,5 @@ namespace Presentationslager
                 }*/
             }
         }
-
-        private static void BokaLäkarbesök()
-        {
-
-        }
     }
 }
