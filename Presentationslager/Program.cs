@@ -135,13 +135,15 @@ namespace Presentationslager
             string besöksSyfte = Console.ReadLine();
 
             Patient patient = kontroller.BokaBesök(personnummer,besöksNummer,datum,tid,anställningsNummer,besöksSyfte);
-            
+
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nLäkarbesöket har bokats framgångsrikt:");
             Console.WriteLine($"Patient: {namn}");
             Console.WriteLine($"Besöksdatum: {datum}");
             Console.WriteLine($"Besökstid: {tid}");
             Console.WriteLine($"Ditt anställningsnummer: {anställningsNummer}");
             Console.WriteLine($"Besökssyfte: {besöksSyfte}\n");
+            Console.ResetColor();
 
 
         }
