@@ -76,7 +76,7 @@ namespace Presentationslager
 
         private static void HuvudMeny()
         {
-
+            Console.WriteLine("----HuvudMeny----");
         }
     }
 }
