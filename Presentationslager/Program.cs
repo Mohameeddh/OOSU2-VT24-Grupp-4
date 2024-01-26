@@ -66,47 +66,52 @@ namespace Presentationslager
         {
             bool val = false;
             while (!val)
-            Console.WriteLine("----HuvudMeny----");
-            Console.WriteLine("Tryck 1 för att boka ett nytt läkarbesök");
-            Console.WriteLine("Tryck 2 för att hantera läkarbesök");
-            Console.WriteLine("Tryck 3 för att registrera patientuppgift");
-            Console.WriteLine("Tryck 4 för att uppdatera patientuppgift");
-            Console.WriteLine("Tryck 5 för att avsluta programmet");
-
-            Console.Write("Välj ett av de alternativ ovanför: ");
-            string val = Console.ReadLine();
-            while (val != null) { }
-            switch(val)
             {
-                case "1":
-                    BokaLäkarbesök();
-                    break;
+                int menyVal = 0;
+                Console.WriteLine("----HuvudMeny----");
+                Console.WriteLine("Tryck 1 för att boka ett nytt läkarbesök");
+                Console.WriteLine("Tryck 2 för att hantera läkarbesök");
+                Console.WriteLine("Tryck 3 för att registrera patientuppgift");
+                Console.WriteLine("Tryck 4 för att uppdatera patientuppgift");
+                Console.WriteLine("Tryck 5 för att avsluta programmet");
+                Console.Write("Välj ett av de alternativ ovanför: ");
+                while (!int.TryParse(Console.ReadLine(), out menyVal))  
+                {
+                    Console.WriteLine("Fel inmatning! ange rätt input val: ");
+                }//gdfgdg
 
-                case "2":
-                    HanteraLäkarbesök();
-                    break;
+                /*switch (menyVal)
+                {
+                    case "1":
+                        BokaLäkarbesök();
+                        break;
 
-                case "3":
-                    RegistreraPatientuppgift();
-                    break;
+                    case "2":
+                        HanteraLäkarbesök();
+                        break;
 
-                case "4":
-                    UppdateraPatientuppgift();
-                    break;
+                    case "3":
+                        RegistreraPatientuppgift();
+                        break;
 
-                case "5":
-                    AvslutaProgram();
-                    break;
+                    case "4":
+                        UppdateraPatientuppgift();
+                        break;
 
-                default:
-                    Console.WriteLine("Ogiltig val, försök igen!");
-                    break;
+                    case "5":
+                        AvslutaProgram();
+                        break;
 
-                
-               
-                    
+                    default:
+                        Console.WriteLine("Ogiltig val, försök igen!");
+                        break;
 
-                
+
+
+
+
+
+                }*/
             }
         }
     }
