@@ -61,9 +61,9 @@ namespace DataLagret
             #endregion
 
             #region Läkare
-            VårdsPersonalRepository.Add(new Läkare(122, "Jakob", "Psykolog", 123456, "Klinisk Psykologi"));
-            VårdsPersonalRepository.Add(new Läkare(133, "Ali", "Kirurg", 112233, "Urologi"));
-            VårdsPersonalRepository.Add(new Läkare(144, "Lina", "Specialistläkare", 654334, "Kardiologi"));
+            VårdsPersonalRepository.Add(new Läkare(122, "Jakob", "Psykolog", "Jakob3456", "Klinisk Psykologi"));
+            VårdsPersonalRepository.Add(new Läkare(133, "Ali", "Kirurg", "Ali233", "Urologi"));
+            VårdsPersonalRepository.Add(new Läkare(144, "Lina", "Specialistläkare", "Lina654", "Kardiologi"));
             #endregion
 
             #region LäkarBesök
