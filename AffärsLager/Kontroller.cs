@@ -11,6 +11,12 @@ namespace AffärsLager
     public class Kontroller
     {
         private UnitOfWork unitOfWork;
+
+        public bool InLoggning(int anställningsNummer, string lösenord)
+        {
+            unitOfWork=new UnitOfWork();
+            Läkare läkare = unitOfWork.LäkarBesökRepository.FirstOrDefault(L => L.AnställningsNummer == anställningsNummer);
+        }
         public LäkarBesök BokaBesök(int patient, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
         {
             DateTime dateTime = DateTime.Now.AddDays(12);
