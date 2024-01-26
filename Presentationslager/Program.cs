@@ -13,44 +13,29 @@ namespace Presentationslager
 {
     internal class Program
     {
-        private Kontroller kontroller;
-        private UnitOfWork unitOfWork;
+        private static Kontroller kontroller;
+        private static UnitOfWork unitOfWork;
 
         static void Main(string[] args)
         {
-            new Program().Inloggning();
-        }
-
-        private Program()
-        {
-             kontroller = new Kontroller();
-             unitOfWork = new UnitOfWork();
-
-        }
-
-        private void Inloggning()
-        {
-            Console.WriteLine("Välkommen till Patienthanteringssystemet");
-            Console.WriteLine();
-            Console.WriteLine("Var god och logga in");
-            Console.WriteLine();
+            Console.WriteLine("Välkommen till Patienthanteringssystemet\n");
+            Console.WriteLine("Var god och logga in\n");
 
             bool logg = false;
 
-            while(logg)
+            while (!logg)
             {
                 try
                 {
                     if (InLoggning())
                     {
-                        Console.WriteLine(" Välkommen" + kontroller.loggadIn.Namn + " du är nu inloggad!");
-                        Console.WriteLine();
+                        Console.WriteLine(" Välkommen" + kontroller.loggadIn.Namn + " du är nu inloggad!\n");
                         logg = true;
                         HuvudMeny();
                     }
                     else
                     {
-                        Console.WriteLine("Inloggning misslyckad, försök igen!");
+                        Console.WriteLine("Inloggning misslyckad, försök igen!\n");
                         Console.WriteLine();
                     }
 
@@ -60,18 +45,17 @@ namespace Presentationslager
                     Console.WriteLine("Felmeddelande: " + ex.Message);
                 }
             }
-
         }
 
-        private bool InLoggning()
+        private static bool InLoggning()
         {
             Console.Write("Ange anställningsnummer: ");
-            string anställningsnummer = Console.ReadLine();
+            int anställningsnummer = int.Parse(Console.ReadLine());
 
             Console.Write("Ange lösenord: ");
-            string lösenord = Console.ReadLine();
+            int lösenord = int.Parse(Console.ReadLine());
 
-            return kontroller.loggadIn(anställningsnummer, lösenord);
+            return kontroller.InLoggning(anställningsnummer, lösenord);
         }
 
         private static void HuvudMeny()
