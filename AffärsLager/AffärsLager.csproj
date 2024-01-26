@@ -44,5 +44,15 @@
     <Compile Include="Kontroller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataLager\DataLayer.csproj">
+      <Project>{552b0487-ce8f-4ebc-88af-2066d8ed36c5}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EntitetLager\EntitetLager.csproj">
+      <Project>{3db7557d-76de-44ba-a75c-6c0204a6c018}</Project>
+      <Name>EntitetLager</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
