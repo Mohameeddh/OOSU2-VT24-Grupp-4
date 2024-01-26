@@ -19,7 +19,6 @@ namespace Presentationslager
         static void Main(string[] args)
         {
             HuvudMeny();
-            new Program().Inloggning();
         }
 
         private Program()
@@ -78,7 +77,9 @@ namespace Presentationslager
         private static void HuvudMeny()
         {
             Console.WriteLine("----HuvudMeny----");
-
+            Console.Write("Tryck 1 för att boka ett nytt läkarbesök:");
+            Console.WriteLine("Tryck 2 ");
+            Console.ReadLine();
         }
     }
 }
