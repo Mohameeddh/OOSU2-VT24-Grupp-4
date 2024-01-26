@@ -43,5 +43,10 @@ namespace AffärsLager
             Patient patient = unitOfWork.PatientRepository.FirstOrDefault(p => p.PatientNummer == patientNummer);
             return patient;
         }
+
+        public Patient RegistreraNyPatient(string namn)
+        {
+
+        }
     }
 }
