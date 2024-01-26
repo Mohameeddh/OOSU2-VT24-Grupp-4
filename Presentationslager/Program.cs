@@ -73,14 +73,14 @@ namespace Presentationslager
                 Console.WriteLine("Tryck 2 för att hantera läkarbesök");
                 Console.WriteLine("Tryck 3 för att registrera patientuppgift");
                 Console.WriteLine("Tryck 4 för att uppdatera patientuppgift");
-                Console.WriteLine("Tryck 5 för att avsluta programmet");
                 Console.Write("Välj ett av de alternativ ovanför: ");
+
                 while (!int.TryParse(Console.ReadLine(), out menyVal))  
                 {
                     Console.WriteLine("Fel inmatning! ange rätt input val: ");
-                }//gdfgdg
+                }
 
-                /*switch (menyVal)
+                switch (menyVal)
                 {
                     case "1":
                         BokaLäkarbesök();
@@ -98,21 +98,17 @@ namespace Presentationslager
                         UppdateraPatientuppgift();
                         break;
 
-                    case "5":
-                        AvslutaProgram();
-                        break;
+                  
 
                     default:
                         Console.WriteLine("Ogiltig val, försök igen!");
                         break;
 
 
+                }
 
-
-
-
-                }*/
             }
         }
+
     }
 }
