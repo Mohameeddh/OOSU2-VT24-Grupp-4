@@ -18,7 +18,7 @@ namespace Presentationslager
 
         static void Main(string[] args)
         {
-            new Program().Inloggning();
+            HuvudMeny();
         }
 
         private Program()
@@ -30,10 +30,8 @@ namespace Presentationslager
 
         private void Inloggning()
         {
-            Console.WriteLine("Välkommen till Patienthanteringssystemet");
-            Console.WriteLine();
-            Console.WriteLine("Var god och logga in");
-            Console.WriteLine();
+            Console.WriteLine("Välkommen till Patienthanteringssystemet\n");
+            Console.WriteLine("Var god och logga in\n");
             Console.ReadLine();
 
             bool logg = false;
@@ -78,6 +76,7 @@ namespace Presentationslager
         private static void HuvudMeny()
         {
             Console.WriteLine("----HuvudMeny----");
+            Console.ReadLine();
         }
     }
 }
