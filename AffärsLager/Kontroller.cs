@@ -11,15 +11,19 @@ namespace AffärsLager
     public class Kontroller
     {
         private UnitOfWork unitOfWork;
+        public Läkare loggadIn;
 
-        public bool InLoggning(string anställningsNummer, string lösenord)
+        public bool InLoggning(int anställningsNummer, int lösenord)
         {
             unitOfWork = new UnitOfWork();
-            Läkare läkare = unitOfWork.LäkarRepository.Where(l => l.AnställningsNummer == anställningsNummer && l.Lösenord == lösenord);
+            Läkare läkare = unitOfWork.VårdsPersonalRepository.FirstOrDefault(l => l.AnställningsNummer == anställningsNummer);
+           
             if (läkare != null && läkare.LösenKontroll(lösenord))
             {
                 return true;
             }
+            loggadIn = null;
+            return false;
         }
         public LäkarBesök BokaBesök(int patient, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
         {
