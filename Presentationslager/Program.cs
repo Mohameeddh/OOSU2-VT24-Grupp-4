@@ -41,9 +41,9 @@ namespace Presentationslager
             {
                 try
                 {
-                    if (LoggaIn())
+                    if (InLoggning())
                     {
-                        Console.WriteLine(" Välkommen" + kontroller.Inloggad.Namn + " du är nu inloggad!");
+                        Console.WriteLine(" Välkommen" + kontroller.loggadIn.Namn + " du är nu inloggad!");
                         Console.WriteLine();
                         logg = true;
                         HuvudMeny();
@@ -63,7 +63,7 @@ namespace Presentationslager
 
         }
 
-        private bool LoggaIn()
+        private bool InLoggning()
         {
             Console.Write("Ange anställningsnummer: ");
             string anställningsnummer = Console.ReadLine();
@@ -71,7 +71,7 @@ namespace Presentationslager
             Console.Write("Ange lösenord: ");
             string lösenord = Console.ReadLine();
 
-            return kontroller.LoggaIn(anställningsnummer, lösenord);
+            return kontroller.loggadIn(anställningsnummer, lösenord);
         }
 
         private static void HuvudMeny()
