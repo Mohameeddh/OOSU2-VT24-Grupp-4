@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataLagret;
+using EntitetLager;
 
 namespace Presentationslager
 {
@@ -10,8 +12,12 @@ namespace Presentationslager
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello Daniel");
+
+            Console.WriteLine($"Hello");
+
             Console.ReadLine();
         }
+
+        while Inloggad=false;
     }
 }
