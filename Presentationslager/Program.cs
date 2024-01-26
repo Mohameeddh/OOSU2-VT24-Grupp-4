@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -114,5 +115,34 @@ namespace Presentationslager
                 }*/
             }
         }
+        private void BokaLäkarbesök()
+        {
+            Console.WriteLine("Boka ett nytt läkarbesök:");
+
+            Console.Write("Ange patientens personnummer: ");
+            string personnummer = Console.ReadLine();
+
+            Console.Write("Ange besöksnummer: ");
+            int besöksNummer = int.Parse(Console.ReadLine());
+
+            Console.Write("Ange datum (ÅÅÅÅ-MM-DD): ");
+            DateTime datum = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Ange tid (HH:mm): ");
+            TimeSpan tid = TimeSpan.Parse(Console.ReadLine());
+
+            Console.Write("Ange besökssyfte: ");
+            string besöksSyfte = Console.ReadLine();
+
+            Patient patient = HämtaPatient(personnummer);
+
+            Console.WriteLine("Läkarbesöket har bokats framgångsrikt:");
+            Console.WriteLine($"Patient: {patient.Namn}");
+            Console.WriteLine($"Besöksdatum: {datum}");
+            Console.WriteLine($"Besökstid: {tid}");
+            Console.WriteLine($"Besökssyfte: {besöksSyfte}");
+
+        }
+    
     }
 }
