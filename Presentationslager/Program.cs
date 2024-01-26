@@ -20,11 +20,13 @@ namespace Presentationslager
 
         static void Main(string[] args)
         {
+
             kontroller = new Kontroller();
             unitOfWork = new UnitOfWork();
            
             Console.WriteLine("Välkommen till Patienthanteringssystemet\n");
             Console.WriteLine("Var god och logga in\n");
+
 
             bool logg = false;
 
@@ -37,6 +39,7 @@ namespace Presentationslager
                         Console.WriteLine(" Välkommen " + kontroller.loggadIn.Namn + " du är nu inloggad!\n");
                         logg = true;
                         HuvudMeny();
+
                     }
                     else
                     {
@@ -63,8 +66,9 @@ namespace Presentationslager
             return kontroller.InLoggning(anställningsnummer, lösenord);
         }
 
-        private static void HuvudMeny()
+        public static void HuvudMeny()
         {
+            
             bool val = false;
             while (!val)
             {
@@ -81,46 +85,39 @@ namespace Presentationslager
                     Console.WriteLine("Fel inmatning! ange rätt input val: ");
                 }//gdfgdg
 
-                /*switch (menyVal)
+                switch (menyVal)
                 {
-                    case "1":
+                    case 1:
                         BokaLäkarbesök();
                         break;
 
-                    case "2":
-                        HanteraLäkarbesök();
+                    case 2:
+                        //HanteraLäkarbesök();
                         break;
 
-                    case "3":
-                        RegistreraPatientuppgift();
+                    case 3:
+                        //RegistreraPatientuppgift();
                         break;
 
-                    case "4":
-                        UppdateraPatientuppgift();
-                        break;
-
-                    case "5":
-                        AvslutaProgram();
+                    case 4:
+                       // UppdateraPatientuppgift();
                         break;
 
                     default:
                         Console.WriteLine("Ogiltig val, försök igen!");
                         break;
-
-
-
-
-
-
-                }*/
+                }
             }
         }
-        private void BokaLäkarbesök()
+        private static void BokaLäkarbesök()
         {
             Console.WriteLine("Boka ett nytt läkarbesök:");
 
             Console.Write("Ange patientens personnummer: ");
-            string personnummer = Console.ReadLine();
+            int personnummer = int.Parse(Console.ReadLine());
+
+            Console.Write("Ange patientens namn:");
+            string namn = Console.ReadLine();
 
             Console.Write("Ange besöksnummer: ");
             int besöksNummer = int.Parse(Console.ReadLine());
@@ -131,16 +128,21 @@ namespace Presentationslager
             Console.Write("Ange tid (HH:mm): ");
             TimeSpan tid = TimeSpan.Parse(Console.ReadLine());
 
+            Console.Write("Ange ditt anställningsnummer: ");
+            int anställningsNummer = int.Parse(Console.ReadLine());
+
             Console.Write("Ange besökssyfte: ");
             string besöksSyfte = Console.ReadLine();
 
-            Patient patient = HämtaPatient(personnummer);
-
-            Console.WriteLine("Läkarbesöket har bokats framgångsrikt:");
-            Console.WriteLine($"Patient: {patient.Namn}");
+            Patient patient = kontroller.BokaBesök(personnummer,besöksNummer,datum,tid,anställningsNummer,besöksSyfte);
+            
+            Console.WriteLine("\nLäkarbesöket har bokats framgångsrikt:");
+            Console.WriteLine($"Patient: {namn}");
             Console.WriteLine($"Besöksdatum: {datum}");
             Console.WriteLine($"Besökstid: {tid}");
-            Console.WriteLine($"Besökssyfte: {besöksSyfte}");
+            Console.WriteLine($"Ditt anställningsnummer: {anställningsNummer}");
+            Console.WriteLine($"Besökssyfte: {besöksSyfte}\n");
+
 
         }
     

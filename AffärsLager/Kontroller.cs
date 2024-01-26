@@ -11,7 +11,7 @@ namespace AffärsLager
     public class Kontroller
     {
         private UnitOfWork unitOfWork;
-        public Läkare loggadIn;
+        public Läkare loggadIn { get; private set; }
 
         public bool InLoggning(int anställningsNummer, int lösenord)
         {
@@ -29,24 +29,29 @@ namespace AffärsLager
                 return false;
             }
         }
-        public LäkarBesök BokaBesök(int patient, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
+        public Patient BokaBesök(int patientNummer, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
         {
             DateTime dateTime = DateTime.Now.AddDays(12);
-            LäkarBesök besök = new LäkarBesök(patient, besöksNummer, datum, tid, anställningsNummer, besöksSyfte);
+            LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, tid, anställningsNummer, besöksSyfte);
             unitOfWork.LäkarBesökRepository.Add(besök);
             unitOfWork.Save();
-            return besök;
+
+            Patient patient = HämtaPatient(patientNummer);
+            return patient;
         }
 
         public Patient HämtaPatient(int  patientNummer) 
         {
             Patient patient = unitOfWork.PatientRepository.FirstOrDefault(p => p.PatientNummer == patientNummer);
+            unitOfWork.Save();
             return patient;
         }
 
-        public Patient RegistreraNyPatient(string namn)
+       /* public Patient RegistreraNyPatient()
         {
+            Patient NyPatient = new Patient();
 
-        }
+
+        }*/
     }
 }

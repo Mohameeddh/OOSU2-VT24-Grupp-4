@@ -14,6 +14,7 @@ namespace EntitetLager
         public TimeSpan Tid { get; set; }
         public int AnställningsNummer { get; set; }
         public string BesöksSyfte { get; set; }
+
         public List<Patient> Patienter = new List<Patient>();
 
 
