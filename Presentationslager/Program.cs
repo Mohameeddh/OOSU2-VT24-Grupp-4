@@ -18,6 +18,9 @@ namespace Presentationslager
 
         static void Main(string[] args)
         {
+            kontroller = new Kontroller();
+            unitOfWork = new UnitOfWork();
+           
             Console.WriteLine("Välkommen till Patienthanteringssystemet\n");
             Console.WriteLine("Var god och logga in\n");
 
@@ -29,7 +32,7 @@ namespace Presentationslager
                 {
                     if (InLoggning())
                     {
-                        Console.WriteLine(" Välkommen" + kontroller.loggadIn.Namn + " du är nu inloggad!\n");
+                        Console.WriteLine(" Välkommen " + kontroller.loggadIn.Namn + " du är nu inloggad!\n");
                         logg = true;
                         HuvudMeny();
                     }

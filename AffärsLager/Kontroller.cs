@@ -20,10 +20,14 @@ namespace AffärsLager
            
             if (läkare != null && läkare.LösenKontroll(lösenord))
             {
+                loggadIn = läkare;
                 return true;
             }
-            loggadIn = null;
-            return false;
+            else
+            {
+                loggadIn = null;
+                return false;
+            }
         }
         public LäkarBesök BokaBesök(int patient, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
         {
