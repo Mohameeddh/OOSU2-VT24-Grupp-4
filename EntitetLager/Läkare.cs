@@ -11,10 +11,10 @@ namespace EntitetLager
         public int AnställningsNummer { get; set; }
         public string Namn { get; set; }
         public string YrkesRoll { get; set; }
-        public string Lösenord { get; set; }
+        public int Lösenord { get; set; }
         public string Specialisering { get; set; }
 
-        public Läkare(int anställningsNummer, string namn, string yrkesRoll, string lösenord, string specialicering)
+        public Läkare(int anställningsNummer, string namn, string yrkesRoll, int lösenord, string specialicering)
         {
             this.AnställningsNummer = anställningsNummer;
             this.Namn = namn;
@@ -23,7 +23,7 @@ namespace EntitetLager
             this.Specialisering = specialicering;
         }
 
-        public bool LösenKontroll(string antalFörsök)
+        public bool LösenKontroll(int antalFörsök)
         {
             return Lösenord == antalFörsök;
         }

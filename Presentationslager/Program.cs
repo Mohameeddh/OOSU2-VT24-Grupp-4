@@ -34,10 +34,11 @@ namespace Presentationslager
             Console.WriteLine();
             Console.WriteLine("Var god och logga in");
             Console.WriteLine();
+            Console.ReadLine();
 
             bool logg = false;
 
-            while(logg)
+            while(!logg)
             {
                 try
                 {
@@ -66,12 +67,12 @@ namespace Presentationslager
         private bool InLoggning()
         {
             Console.Write("Ange anställningsnummer: ");
-            string anställningsnummer = Console.ReadLine();
+            int anställningsnummer = int.Parse(Console.ReadLine());
 
             Console.Write("Ange lösenord: ");
-            string lösenord = Console.ReadLine();
+            int lösenord = int.Parse(Console.ReadLine());
 
-            return kontroller.loggadIn(anställningsnummer, lösenord);
+            return kontroller.InLoggning(anställningsnummer, lösenord);
         }
 
         private static void HuvudMeny()
