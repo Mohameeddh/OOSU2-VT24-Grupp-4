@@ -44,9 +44,5 @@ namespace AffärsLager
             return patient;
         }
 
-        public Patient RegistreraNyPatient(string namn)
-        {
-
-        }
     }
 }
