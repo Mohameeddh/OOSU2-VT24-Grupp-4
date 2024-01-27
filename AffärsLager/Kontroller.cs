@@ -31,7 +31,7 @@ namespace AffärsLager
         }
         public Patient BokaBesök(int patientNummer, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
         {
-            DateTime dateTime = DateTime.Now.AddDays(12);
+            //DateTime dateTime = DateTime.Now.AddDays(30);
             LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, tid, anställningsNummer, besöksSyfte);
             unitOfWork.LäkarBesökRepository.Add(besök);
             unitOfWork.Save();
@@ -47,11 +47,14 @@ namespace AffärsLager
             return patient;
         }
 
-       /* public Patient RegistreraNyPatient()
+        public Patient RegistreraNyPatient(string namn, int personNummer, string adress, int telefonNummer, string epost, int patientNummer)
         {
-            Patient NyPatient = new Patient();
+            Patient NyPatient = new Patient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
+            unitOfWork.PatientRepository.Add(NyPatient);
+            unitOfWork.Save();
+            return NyPatient;
 
 
-        }*/
+        }
     }
 }

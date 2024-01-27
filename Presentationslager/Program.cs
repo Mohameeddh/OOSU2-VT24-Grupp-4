@@ -96,7 +96,7 @@ namespace Presentationslager
                         break;
 
                     case 3:
-                        //RegistreraPatientuppgift();
+                        RegistreraPatientuppgift();
                         break;
 
                     case 4:
@@ -145,6 +145,34 @@ namespace Presentationslager
             Console.WriteLine($"Besökssyfte: {besöksSyfte}\n");
             Console.ResetColor();
         }
-    
+
+        private static void RegistreraPatientuppgift()//Denna är klar
+        {
+            Console.Write("Ange patientens namn: ");
+            string namn = Console.ReadLine();
+
+            Console.Write("Ange patientens personnummer: ");
+            int personNummer = int.Parse(Console.ReadLine()) ;
+
+            Console.Write("Ange patientens adress: ");
+            string adress = Console.ReadLine();
+
+            Console.Write("Ange patientens telefonnummer: ");
+            int telefonNummer = int.Parse(Console.ReadLine());
+
+            Console.Write("Ange patientens epost: ");
+            string epost = Console.ReadLine();
+
+            Console.Write("Ange patientens patientnummer: ");
+            int patientNummer = int.Parse(Console.ReadLine());
+
+            Patient nyaPatienter = kontroller.RegistreraNyPatient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"\nFöljande patient har registrerats\n {namn}\n {personNummer}\n {adress}\n {telefonNummer}\n {epost}\n {patientNummer}\n");
+            Console.ResetColor();
+        }
+
+
     }
 }
