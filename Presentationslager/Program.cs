@@ -96,7 +96,7 @@ namespace Presentationslager
                         break;
 
                     case 2:
-                        //HanteraLäkarbesök();
+                        HanteraLäkarbesök();
                         break;
 
                     case 3:
@@ -105,6 +105,9 @@ namespace Presentationslager
 
                     case 4:
                        // UppdateraPatientuppgift();
+                        break;
+                    
+                        case 5:Environment.Exit(0);
                         break;
 
                     default:
@@ -173,10 +176,46 @@ namespace Presentationslager
             Patient nyaPatienter = kontroller.RegistreraNyPatient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"\nFöljande patient har registrerats\n {namn}\n {personNummer}\n {adress}\n {telefonNummer}\n {epost}\n {patientNummer}\n");
+            Console.WriteLine($"\nFöljande patient har registrerats\n Namn: {namn}\n Personnummer: {personNummer}\n Adress: {adress}\n Telefeonnummer: {telefonNummer}\n E-post: {epost}\n Patientnummer: {patientNummer}\n");
             Console.ResetColor();
         }
 
+        
+        private static void HanteraLäkarbesök()
+        {
+            Console.Write("Ange ditt anställningsnummer: ");
+            int anställningsNummer = int.Parse(Console.ReadLine());
+            Console.Write("Ange patientnummer för att hantera läkarbesök: ");
+            int patientNummer = int.Parse(Console.ReadLine());
+            string besöksSyfte = Console.ReadLine();
 
+            Patient patient = kontroller.HämtaPatient(patientNummer);
+
+            if( patient != null )
+            {
+                Console.WriteLine($"Patientinformation: \nNamn: {patient.Namn}, \nTelefonnummer: {patient.TelefonNummer}, \nPersonnummer: {patient.PersonNummer}, \nAdress: {patient.Adress}, \nEpost: {patient.Epost}");
+                Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
+                if (int.TryParse(Console.ReadLine(), out int besöksnummer))
+                {
+                    DateTime datum = DateTime.Now;
+                    TimeSpan tid = DateTime.Now.TimeOfDay;
+
+                    bool avbokat = kontroller.Hanterabesök(patientNummer, besöksnummer, datum, tid, anställningsNummer, besöksSyfte);
+
+                    if(!avbokat )
+                    {
+                        Console.WriteLine("Läkarbesöket kunde ej avbokas, kontrollera att det är rätt besöksnummer");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ogiltigt besöksnummer.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Patienten kunde inte Hittas!");
+            }
+        }
     }
 }

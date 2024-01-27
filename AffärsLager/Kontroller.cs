@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using DataLagret;
 using EntitetLager;
 
@@ -55,6 +57,23 @@ namespace AffärsLager
             return NyPatient;
 
 
+        }
+
+        public bool Hanterabesök(int patientNummer, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte) //Inte Klar
+        {
+            LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, tid, anställningsNummer, besöksSyfte);
+            if(besök != null)
+            {
+                unitOfWork.LäkarBesökRepository.Remove(besök);
+                unitOfWork.Save();
+                Console.WriteLine("Läkarbesöket är avbokat!");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("Läkarbesöket kunde ej hittas!");
+                return false;
+            }
         }
     }
 }

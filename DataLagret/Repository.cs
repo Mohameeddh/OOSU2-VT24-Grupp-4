@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitetLager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,6 +61,7 @@ namespace DataLagret
         {
             return table.Count();
         }
+
         internal Repository()
         {
             if (table == null)
