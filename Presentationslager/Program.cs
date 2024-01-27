@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,8 @@ namespace Presentationslager
             return kontroller.InLoggning(anställningsnummer, lösenord);
         }
 
+        
+
         public static void HuvudMeny()
         {
             
@@ -80,6 +83,7 @@ namespace Presentationslager
                 Console.WriteLine("Tryck 4 för att uppdatera patientuppgift");
                 Console.WriteLine("Tryck 5 för att avsluta programmet");
                 Console.Write("Välj ett av de alternativ ovanför: ");
+                Console.WriteLine("TEST");
                 while (!int.TryParse(Console.ReadLine(), out menyVal))  
                 {
                     Console.WriteLine("Fel inmatning! ange rätt input val: ");
