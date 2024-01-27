@@ -83,7 +83,7 @@ namespace Presentationslager
                 while (!int.TryParse(Console.ReadLine(), out menyVal))  
                 {
                     Console.WriteLine("Fel inmatning! ange rätt input val: ");
-                }//gdfgdg
+                }
 
                 switch (menyVal)
                 {
@@ -109,9 +109,9 @@ namespace Presentationslager
                 }
             }
         }
-        private static void BokaLäkarbesök()
+        private static void BokaLäkarbesök()//Denna är klar
         {
-            Console.WriteLine("Boka ett nytt läkarbesök:");
+            Console.WriteLine("Boka ett nytt läkarbesök:\n");
 
             Console.Write("Ange patientens personnummer: ");
             int personnummer = int.Parse(Console.ReadLine());
@@ -144,8 +144,6 @@ namespace Presentationslager
             Console.WriteLine($"Ditt anställningsnummer: {anställningsNummer}");
             Console.WriteLine($"Besökssyfte: {besöksSyfte}\n");
             Console.ResetColor();
-
-
         }
     
     }
