@@ -31,10 +31,10 @@ namespace AffärsLager
                 return false;
             }
         }
-        public Patient BokaBesök(int patientNummer, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
+        public Patient BokaBesök(int patientNummer, int besöksNummer, DateTime datum, int anställningsNummer, string besöksSyfte)
         {
             //DateTime dateTime = DateTime.Now.AddDays(30);
-            LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, tid, anställningsNummer, besöksSyfte);
+            LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, anställningsNummer, besöksSyfte);
             unitOfWork.LäkarBesökRepository.Add(besök);
             unitOfWork.Save();
 

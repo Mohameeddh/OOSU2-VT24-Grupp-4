@@ -141,7 +141,7 @@ namespace Presentationslager
             Console.Write("Ange besökssyfte: ");
             string besöksSyfte = Console.ReadLine();
 
-            Patient patient = kontroller.BokaBesök(personnummer,besöksNummer,datum,tid,anställningsNummer,besöksSyfte);
+            Patient patient = kontroller.BokaBesök(personnummer,besöksNummer,datum,anställningsNummer,besöksSyfte);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nLäkarbesöket har bokats framgångsrikt:");
@@ -183,19 +183,19 @@ namespace Presentationslager
         
         private static void HanteraLäkarbesök()
         {
-            Console.Write("Ange patientnummer för att hantera läkarbesök: ");
-            int patientNummer = int.Parse(Console.ReadLine());    
-            LäkarBesök besöket = kontroller.HämtaLäkarbesök(patientNummer);
+            Console.Write("Ange besöksnummer för att hantera läkarbesök: ");
+            int besöksnummer = int.Parse(Console.ReadLine());    
+            LäkarBesök besöket = kontroller.HämtaLäkarbesök(besöksnummer);
 
             if ( besöket != null )
             {
-                Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummer} \nBeöksdatum: {besöket.BesöksDatum} \nTid: {besöket.Tid} \nBesökssyfte: {besöket.BesöksSyfte}");
+                Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummer} \nBeöksdatum: {besöket.BesöksDatum} \nBesökssyfte: {besöket.BesöksSyfte}");
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
-                int besöksnummer = int.Parse(Console.ReadLine());
+                int besöksNummer = int.Parse(Console.ReadLine());
                 
               if (kontroller.Hanterabesök(besöket))
               {
-                 Console.WriteLine($"Läkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
+                 Console.WriteLine($"\nLäkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
               }
                 
                 else
