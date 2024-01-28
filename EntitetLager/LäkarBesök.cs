@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,6 +28,11 @@ namespace EntitetLager
             this.Tid = tid;
             this.AnställningsNummer = anställningsNummer;
             this.BesöksSyfte = besöksSyfte;
+        }
+
+        public int BesöksTider(int patientnummer, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte)
+        {
+            return PatientNummer = patientnummer;
         }
     }
 }
