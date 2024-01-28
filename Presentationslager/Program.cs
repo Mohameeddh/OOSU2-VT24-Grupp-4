@@ -183,10 +183,14 @@ namespace Presentationslager
         
         private static void HanteraLäkarbesök()
         {
+            Console.Write("Ange ditt anställningsnummer: ");
+            int anställningsNummer = int.Parse(Console.ReadLine());
+
             Console.Write("Ange patientnummer för att hantera läkarbesök: ");
             int patientNummer = int.Parse(Console.ReadLine());
             
             LäkarBesök besöket = kontroller.HämtaLäkarbesök(patientNummer);
+
 
             if ( besöket != null )
             {
@@ -194,10 +198,10 @@ namespace Presentationslager
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
                 int besöksnummer = int.Parse(Console.ReadLine());
                 
-                    if (kontroller.Hanterabesök(besöket))
-                    {
-                        Console.WriteLine($"Läkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
-                    }
+              if (kontroller.Hanterabesök(besöket))
+              {
+                 Console.WriteLine($"Läkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
+              }
                 
                 else
                 {
