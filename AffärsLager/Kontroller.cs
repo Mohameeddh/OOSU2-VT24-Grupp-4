@@ -75,5 +75,23 @@ namespace AffärsLager
                 return false;
             }
         }
+        public bool UppdateraPatient(Patient patient)
+        {
+            try
+            {
+                
+
+                unitOfWork.PatientRepository.Update(patient);
+                unitOfWork.Save();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                
+                Console.WriteLine("Fel vid uppdatering av patient: " + ex.Message);
+                return false;
+            }
+        }
     }
 }

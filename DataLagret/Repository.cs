@@ -72,5 +72,8 @@ namespace DataLagret
         // This is a bit strange but I don't want multiple lists of the class T.
         // NOTE: This is very bad if you use multiple threads.
         private static IList<T> table;
+        public void Update(Patient patient)
+        { }
+
     }
 }
