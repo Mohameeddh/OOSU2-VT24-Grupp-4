@@ -183,23 +183,13 @@ namespace Presentationslager
         
         private static void HanteraLäkarbesök()
         {
-
-            Console.Write("Ange ditt anställningsnummer: ");
-            int anställningsNummer = int.Parse(Console.ReadLine());
-
             Console.Write("Ange patientnummer för att hantera läkarbesök: ");
-            int patientNummer = int.Parse(Console.ReadLine());
-            
+            int patientNummer = int.Parse(Console.ReadLine());    
             LäkarBesök besöket = kontroller.HämtaLäkarbesök(patientNummer);
 
-
-<<<<<<< HEAD
             if ( besöket != null )
-=======
-            if( patient != null)
->>>>>>> 7af1f438fbfd5630628635fa3fff9cb218a870db
             {
-                Console.WriteLine($"Patientinformation: \nNamn: {besöket.PatientNummer}, \nTelefonnummer: {besöket.BesöksNummer}, \nPersonnummer: {besöket.BesöksDatum}, \nAdress: {besöket.Tid}, \nEpost: {besöket.BesöksSyfte}");
+                Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummer} \nBeöksdatum: {besöket.BesöksDatum} \nTid: {besöket.Tid} \nBesökssyfte: {besöket.BesöksSyfte}");
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
                 int besöksnummer = int.Parse(Console.ReadLine());
                 
