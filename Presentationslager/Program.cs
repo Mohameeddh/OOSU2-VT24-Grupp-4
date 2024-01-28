@@ -183,30 +183,22 @@ namespace Presentationslager
         
         private static void HanteraLäkarbesök()
         {
-            Console.Write("Ange ditt anställningsnummer: ");
-            int anställningsNummer = int.Parse(Console.ReadLine());
             Console.Write("Ange patientnummer för att hantera läkarbesök: ");
             int patientNummer = int.Parse(Console.ReadLine());
-            string besöksSyfte = Console.ReadLine();
+            
+            LäkarBesök besöket = kontroller.HämtaLäkarbesök(patientNummer);
 
-            Patient patient = kontroller.HämtaPatient(patientNummer);
-
-            if( patient != null )
+            if ( besöket != null )
             {
-                Console.WriteLine($"Patientinformation: \nNamn: {patient.Namn}, \nTelefonnummer: {patient.TelefonNummer}, \nPersonnummer: {patient.PersonNummer}, \nAdress: {patient.Adress}, \nEpost: {patient.Epost}");
+                Console.WriteLine($"Patientinformation: \nNamn: {besöket.PatientNummer}, \nTelefonnummer: {besöket.BesöksNummer}, \nPersonnummer: {besöket.BesöksDatum}, \nAdress: {besöket.Tid}, \nEpost: {besöket.BesöksSyfte}");
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
-                if (int.TryParse(Console.ReadLine(), out int besöksnummer))
-                {
-                    DateTime datum = DateTime.Now;
-                    TimeSpan tid = DateTime.Now.TimeOfDay;
-
-                    bool avbokat = kontroller.Hanterabesök(patientNummer, besöksnummer, datum, tid, anställningsNummer, besöksSyfte);
-
-                    if(!avbokat )
+                int besöksnummer = int.Parse(Console.ReadLine());
+                
+                    if (kontroller.Hanterabesök(besöket))
                     {
-                        Console.WriteLine("Läkarbesöket kunde ej avbokas, kontrollera att det är rätt besöksnummer");
+                        Console.WriteLine($"Läkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
                     }
-                }
+                
                 else
                 {
                     Console.WriteLine("Ogiltigt besöksnummer.");
@@ -223,7 +215,7 @@ namespace Presentationslager
             Console.Write("Ange patientens personnummer för uppdatering: ");
             int personnummer = int.Parse(Console.ReadLine());
 
-            
+     
             Patient patient = kontroller.HämtaPatient(personnummer);
 
             if (patient != null)

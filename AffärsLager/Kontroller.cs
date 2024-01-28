@@ -59,22 +59,28 @@ namespace AffärsLager
 
         }
 
-        public bool Hanterabesök(int patientNummer, int besöksNummer, DateTime datum, TimeSpan tid, int anställningsNummer, string besöksSyfte) //Inte Klar
+        public LäkarBesök HämtaLäkarbesök(int besöksNummer)
         {
-            LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, tid, anställningsNummer, besöksSyfte);
-            if(besök != null)
+            LäkarBesök besöket = unitOfWork.LäkarBesökRepository.FirstOrDefault(b => b.BesöksNummer == besöksNummer);
+            unitOfWork.Save();
+            return besöket;
+        }
+
+        public bool Hanterabesök(LäkarBesök besöksnummer) //Inte Klar
+        {
+            try
             {
-                unitOfWork.LäkarBesökRepository.Remove(besök);
-                unitOfWork.Save();
-                Console.WriteLine("Läkarbesöket är avbokat!");
+                unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
+                unitOfWork.Save(); 
                 return true;
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("Läkarbesöket kunde ej hittas!");
+                Console.WriteLine("Kunde ej avboka läkarbesök, försök igen" + ex.Message);
                 return false;
             }
         }
+
         public bool UppdateraPatient(Patient patient)
         {
             try
