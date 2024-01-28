@@ -104,7 +104,7 @@ namespace Presentationslager
                         break;
 
                     case 4:
-                       // UppdateraPatientuppgift();
+                         UppdateraPatientuppgift();
                         break;
                     
                         case 5:Environment.Exit(0);
@@ -216,6 +216,73 @@ namespace Presentationslager
             else
             {
                 Console.WriteLine("Patienten kunde inte Hittas!");
+            }
+        }
+
+        private static void UppdateraPatientuppgift()
+        {
+            Console.Write("Ange patientens personnummer för uppdatering: ");
+            int personnummer = int.Parse(Console.ReadLine());
+
+            
+            Patient patient = kontroller.HämtaPatient(personnummer);
+
+            if (patient != null)
+            {
+                Console.WriteLine($" Informationen för patient {patient.Namn}:");
+                Console.WriteLine($"1. Namn: {patient.Namn}");
+                Console.WriteLine($"2. Adress: {patient.Adress}");
+                Console.WriteLine($"3. Telefonnummer: {patient.TelefonNummer}");
+                Console.WriteLine($"4. E-post: {patient.Epost}");
+
+                Console.Write("Välj vilken information du vill uppdatera genomatt välja mellan 1-4 ovanför: ");
+                if (int.TryParse(Console.ReadLine(), out int val))
+                {
+                    switch (val)
+                    {
+                        case 1:
+                            Console.Write("Ange nytt namn: ");
+                            patient.Namn = Console.ReadLine();
+                            break;
+
+                        case 2:
+                            Console.Write("Ange ny adress: ");
+                            patient.Adress = Console.ReadLine();
+                            break;
+
+                        case 3:
+                            Console.Write("Ange nytt telefonnummer: ");
+                            patient.TelefonNummer = int.Parse(Console.ReadLine());
+                            break;
+
+                        case 4:
+                            Console.Write("Ange ny e-post: ");
+                            patient.Epost = Console.ReadLine();
+                            break;
+
+                        default:
+                            Console.WriteLine("Ogiltigt val.");
+                            break;
+                    }
+
+                    
+                    if (kontroller.UppdateraPatient(patient))
+                    {
+                        Console.WriteLine("Patientinformation är uppdaterad!!.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Det finns ett fel vid uppdatering av patientinformation.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ogiltigt val.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Patienten kunde inte hittas. Kontrollera personnumret och försök igen.");
             }
         }
     }
