@@ -208,11 +208,11 @@ namespace Presentationslager
 
         private static void UppdateraPatientuppgift()
         {
-            Console.Write("Ange patientens personnummer för uppdatering: ");
-            int personnummer = int.Parse(Console.ReadLine());
+            Console.Write("Ange patientens patientnummer för uppdatering: ");
+            int patientnummer = int.Parse(Console.ReadLine());
 
      
-            Patient patient = kontroller.HämtaPatient(personnummer);
+            Patient patient = kontroller.HämtaPatient(patientnummer);
 
             if (patient != null)
             {
@@ -223,39 +223,47 @@ namespace Presentationslager
                 Console.WriteLine($"4. E-post: {patient.Epost}");
 
                 Console.Write("Välj vilken information du vill uppdatera genomatt välja mellan 1-4 ovanför: ");
-                if (int.TryParse(Console.ReadLine(), out int val))
+                if (int.TryParse(Console.ReadLine(), out int val) && val >= 1 && val <= 4)
                 {
                     switch (val)
                     {
                         case 1:
                             Console.Write("Ange nytt namn: ");
                             patient.Namn = Console.ReadLine();
-                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         case 2:
                             Console.Write("Ange ny adress: ");
                             patient.Adress = Console.ReadLine();
-                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         case 3:
                             Console.Write("Ange nytt telefonnummer: ");
                             patient.TelefonNummer = int.Parse(Console.ReadLine());
-                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         case 4:
                             Console.Write("Ange ny e-post: ");
                             patient.Epost = Console.ReadLine();
-                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         default:
                             Console.WriteLine("Ogiltigt val.");
                             break;
                     }
-
+                    
+                    if (kontroller.UppdateraPatient(patient))
+                    {
+                        Console.WriteLine("Patientuppgifter är sparade!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Kunde inte spara");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Fel input ange val mellan 1 till 4");
                 }
             }
            
