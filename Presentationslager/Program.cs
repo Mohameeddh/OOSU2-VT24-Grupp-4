@@ -129,11 +129,8 @@ namespace Presentationslager
             Console.Write("Ange besöksnummer: ");
             int besöksNummer = int.Parse(Console.ReadLine());
 
-            Console.Write("Ange datum (ÅÅÅÅ-MM-DD): ");
+            Console.Write("Ange datum (ÅÅÅÅ-MM-DD HH:MM): ");
             DateTime datum = DateTime.Parse(Console.ReadLine());
-
-            Console.Write("Ange tid (HH:mm): ");
-            TimeSpan tid = TimeSpan.Parse(Console.ReadLine());
 
             Console.Write("Ange ditt anställningsnummer: ");
             int anställningsNummer = int.Parse(Console.ReadLine());
@@ -147,7 +144,7 @@ namespace Presentationslager
             Console.WriteLine("\nLäkarbesöket har bokats framgångsrikt:");
             Console.WriteLine($"Patient: {namn}");
             Console.WriteLine($"Besöksdatum: {datum}");
-            Console.WriteLine($"Besökstid: {tid}");
+            //Console.WriteLine($"Besökstid: {tid}");
             Console.WriteLine($"Ditt anställningsnummer: {anställningsNummer}");
             Console.WriteLine($"Besökssyfte: {besöksSyfte}\n");
             Console.ResetColor();
@@ -233,21 +230,25 @@ namespace Presentationslager
                         case 1:
                             Console.Write("Ange nytt namn: ");
                             patient.Namn = Console.ReadLine();
+                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         case 2:
                             Console.Write("Ange ny adress: ");
                             patient.Adress = Console.ReadLine();
+                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         case 3:
                             Console.Write("Ange nytt telefonnummer: ");
                             patient.TelefonNummer = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         case 4:
                             Console.Write("Ange ny e-post: ");
                             patient.Epost = Console.ReadLine();
+                            Console.WriteLine("Patientuppgifter uppdaterades!");
                             break;
 
                         default:
@@ -255,25 +256,14 @@ namespace Presentationslager
                             break;
                     }
 
-                    
-                    if (kontroller.UppdateraPatient(patient))
-                    {
-                        Console.WriteLine("Patientinformation är uppdaterad!!.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Det finns ett fel vid uppdatering av patientinformation.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Ogiltigt val.");
                 }
             }
+           
             else
             {
-                Console.WriteLine("Patienten kunde inte hittas. Kontrollera personnumret och försök igen.");
+              Console.WriteLine("Patienten kunde inte hittas. Kontrollera personnumret och försök igen.");
             }
+                   
         }
     }
 }
