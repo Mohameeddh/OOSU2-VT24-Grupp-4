@@ -193,7 +193,7 @@ namespace Presentationslager
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
                 int besöksNummer = int.Parse(Console.ReadLine());
                 
-              if (kontroller.Hanterabesök(besöket))
+              if (besöksNummer == besöksnummer && kontroller.Hanterabesök(besöket))
               {
                  Console.WriteLine($"\nLäkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
               }
