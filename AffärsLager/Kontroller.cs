@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using DataLagret;
 using EntitetLager;
+using Microsoft.SqlServer.Server;
 
 namespace AffärsLager
 {
@@ -55,8 +56,24 @@ namespace AffärsLager
             unitOfWork.PatientRepository.Add(NyPatient);
             unitOfWork.Save();
             return NyPatient;
+        }
 
+        public static string ValideringAvTextSträng()
+        {
+            string inmatning = Console.ReadLine();
+            do
+            {
+                inmatning = Console.ReadLine();
+                if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
+                {
+                    Console.WriteLine("Din inmatning är ogiltig försök igen");
+                }
 
+            }
+            while (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit));
+            {
+               return inmatning;
+            }
         }
 
         public LäkarBesök HämtaLäkarbesök(int besöksNummer)

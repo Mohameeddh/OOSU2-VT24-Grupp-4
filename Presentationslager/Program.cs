@@ -150,22 +150,22 @@ namespace Presentationslager
             Console.ResetColor();
         }
 
-        private static void RegistreraPatientuppgift()//Denna är klar
+        public static void RegistreraPatientuppgift()//Denna är klar
         {
             Console.Write("Ange patientens namn: ");
-            string namn = Console.ReadLine();
+            string namn = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange patientens personnummer: ");
             int personNummer = int.Parse(Console.ReadLine()) ;
 
             Console.Write("Ange patientens adress: ");
-            string adress = Console.ReadLine();
+            string adress = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange patientens telefonnummer: ");
             int telefonNummer = int.Parse(Console.ReadLine());
 
             Console.Write("Ange patientens epost: ");
-            string epost = Console.ReadLine();
+            string epost = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange patientens patientnummer: ");
             int patientNummer = int.Parse(Console.ReadLine());

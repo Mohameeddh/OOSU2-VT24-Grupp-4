@@ -32,5 +32,7 @@ namespace EntitetLager
              LäkarBesök NyttLäkarBesök = new LäkarBesök(besöksNummer, this, datum, besöksSyfte, anställningsNummer);
          }*/
 
+
+
     }
 }
