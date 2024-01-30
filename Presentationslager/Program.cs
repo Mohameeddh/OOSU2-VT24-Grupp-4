@@ -120,11 +120,8 @@ namespace Presentationslager
         {
             Console.WriteLine("Boka ett nytt läkarbesök:\n");
 
-            Console.Write("Ange patientens personnummer: ");
-            int personnummer = Kontroller.ValideringAvInt();
-
-            Console.Write("Ange patientens namn:");
-            string namn = Kontroller.ValideringAvTextSträng();
+            Console.Write("Ange patientens patientnummer: ");
+            int patientnummer = Kontroller.ValideringAvInt();
 
             Console.Write("Ange besöksnummer: ");
             int besöksNummer = Kontroller.ValideringAvInt();
@@ -138,13 +135,13 @@ namespace Presentationslager
             Console.Write("Ange besökssyfte: ");
             string besöksSyfte = Kontroller.ValideringAvTextSträng();
 
-            Patient patient = kontroller.BokaBesök(personnummer,besöksNummer,datum,anställningsNummer,besöksSyfte);
+            Patient patient = kontroller.BokaBesök(patientnummer,besöksNummer,datum,anställningsNummer,besöksSyfte);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nLäkarbesöket har bokats framgångsrikt:");
-            Console.WriteLine($"Patient: {namn}");
+            Console.WriteLine($"Patientnummer: {patientnummer}");
+            Console.WriteLine($"Besöksnummer: {besöksNummer}");
             Console.WriteLine($"Besöksdatum: {datum}");
-            //Console.WriteLine($"Besökstid: {tid}");
             Console.WriteLine($"Ditt anställningsnummer: {anställningsNummer}");
             Console.WriteLine($"Besökssyfte: {besöksSyfte}\n");
             Console.ResetColor();
@@ -192,7 +189,7 @@ namespace Presentationslager
 
                 if (besöksNummer == besöksnummer && kontroller.Hanterabesök(besöket))
               {
-                 Console.WriteLine($"\nLäkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
+                 Console.WriteLine($"\nLäkarbesöket med besöksnummer {besöksnummer} är hanterat och borttaget från systemet\n");
               }
                 
                 else
