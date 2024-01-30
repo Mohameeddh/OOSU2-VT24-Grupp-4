@@ -58,6 +58,30 @@ namespace AffärsLager
             return NyPatient;
         }
 
+        public static int ValideringAvInt()
+        {
+            int siffra;
+
+            while (true)
+            {
+
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out siffra))
+                {
+                     return siffra;
+                }
+
+                else
+                {
+                
+                     Console.Write("fel inmatning försök igen: ");
+
+                }
+            
+            }
+        }
+
         public static string ValideringAvTextSträng()
         {
             string inmatning = Console.ReadLine();
@@ -66,7 +90,7 @@ namespace AffärsLager
                 inmatning = Console.ReadLine();
                 if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
                 {
-                    Console.WriteLine("Din inmatning är ogiltig försök igen");
+                    Console.Write("Din inmatning är ogiltig försök igen: ");
                 }
 
             }

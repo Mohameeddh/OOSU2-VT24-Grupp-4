@@ -156,19 +156,19 @@ namespace Presentationslager
             string namn = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange patientens personnummer: ");
-            int personNummer = int.Parse(Console.ReadLine()) ;
+            int personNummer = Kontroller.ValideringAvInt();
 
             Console.Write("Ange patientens adress: ");
             string adress = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange patientens telefonnummer: ");
-            int telefonNummer = int.Parse(Console.ReadLine());
+            int telefonNummer = Kontroller.ValideringAvInt();
 
             Console.Write("Ange patientens epost: ");
             string epost = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange patientens patientnummer: ");
-            int patientNummer = int.Parse(Console.ReadLine());
+            int patientNummer = Kontroller.ValideringAvInt();
 
             Patient nyaPatienter = kontroller.RegistreraNyPatient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
 
@@ -222,19 +222,19 @@ namespace Presentationslager
                 Console.WriteLine($"3. Telefonnummer: {patient.TelefonNummer}");
                 Console.WriteLine($"4. E-post: {patient.Epost}");
 
-                Console.Write("Välj vilken information du vill uppdatera genomatt välja mellan 1-4 ovanför: ");
-                if (int.TryParse(Console.ReadLine(), out int val) && val >= 1 && val <= 4)
+                Console.Write("Välj vilken information du vill uppdatera genomatt välja mellan 1-4 ovanför eller tryck 5 för att avsluta: ");
+                if (int.TryParse(Console.ReadLine(), out int val) && val >= 1 && val <= 5)
                 {
                     switch (val)
                     {
                         case 1:
                             Console.Write("Ange nytt namn: ");
-                            patient.Namn = Console.ReadLine();
+                            patient.Namn = Kontroller.ValideringAvTextSträng();
                             break;
 
                         case 2:
                             Console.Write("Ange ny adress: ");
-                            patient.Adress = Console.ReadLine();
+                            patient.Adress = Kontroller.ValideringAvTextSträng();
                             break;
 
                         case 3:
@@ -244,7 +244,11 @@ namespace Presentationslager
 
                         case 4:
                             Console.Write("Ange ny e-post: ");
-                            patient.Epost = Console.ReadLine();
+                            patient.Epost = Kontroller.ValideringAvTextSträng();
+                            break;
+
+                        case 5: 
+                            Environment.Exit(0);
                             break;
 
                         default:
