@@ -83,7 +83,6 @@ namespace Presentationslager
                 Console.WriteLine("Tryck 4 för att uppdatera patientuppgift");
                 Console.WriteLine("Tryck 5 för att avsluta programmet");
                 Console.Write("Välj ett av de alternativ ovanför: ");
-                Console.WriteLine("TEST");
                 while (!int.TryParse(Console.ReadLine(), out menyVal))  
                 {
                     Console.WriteLine("Fel inmatning! ange rätt input val: ");
@@ -199,7 +198,7 @@ namespace Presentationslager
             }
             else
             {
-                Console.WriteLine("Patienten kunde inte Hittas!");
+                Console.WriteLine("Det finns inget läkarbesök med det angivna besöksnummret!\n");
             }
         }
 
