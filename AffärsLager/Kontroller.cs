@@ -82,12 +82,12 @@ namespace AffärsLager
 
         public static string ValideringAvTextSträng()
         {
-            string inmatning = Console.ReadLine();
+            string inmatning;
             do
             {
+                inmatning = Console.ReadLine();
                 if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
                 {
-                    inmatning = Console.ReadLine();
                     Console.Write("Din inmatning är ogiltig försök igen: ");
                 }
 
