@@ -34,7 +34,6 @@ namespace AffärsLager
         }
         public Patient BokaBesök(int patientNummer, int besöksNummer, DateTime datum, int anställningsNummer, string besöksSyfte)
         {
-            //DateTime dateTime = DateTime.Now.AddDays(30);
             LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, anställningsNummer, besöksSyfte);
             unitOfWork.LäkarBesökRepository.Add(besök);
             unitOfWork.Save();
@@ -78,7 +77,6 @@ namespace AffärsLager
                      Console.Write("fel inmatning försök igen: ");
 
                 }
-            
             }
         }
 
@@ -107,7 +105,7 @@ namespace AffärsLager
             return besöket;
         }
 
-        public bool Hanterabesök(LäkarBesök besöksnummer) //Inte Klar
+        public bool Hanterabesök(LäkarBesök besöksnummer)
         {
             try
             {
@@ -126,8 +124,6 @@ namespace AffärsLager
         {
             try
             {
-                
-
                 unitOfWork.PatientRepository.Update(patient);
                 unitOfWork.Save();
 

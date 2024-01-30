@@ -121,22 +121,22 @@ namespace Presentationslager
             Console.WriteLine("Boka ett nytt läkarbesök:\n");
 
             Console.Write("Ange patientens personnummer: ");
-            int personnummer = int.Parse(Console.ReadLine());
+            int personnummer = Kontroller.ValideringAvInt();
 
             Console.Write("Ange patientens namn:");
-            string namn = Console.ReadLine();
+            string namn = Kontroller.ValideringAvTextSträng();
 
             Console.Write("Ange besöksnummer: ");
-            int besöksNummer = int.Parse(Console.ReadLine());
+            int besöksNummer = Kontroller.ValideringAvInt();
 
             Console.Write("Ange datum (ÅÅÅÅ-MM-DD HH:MM): ");
             DateTime datum = DateTime.Parse(Console.ReadLine());
 
             Console.Write("Ange ditt anställningsnummer: ");
-            int anställningsNummer = int.Parse(Console.ReadLine());
+            int anställningsNummer = Kontroller.ValideringAvInt();
 
             Console.Write("Ange besökssyfte: ");
-            string besöksSyfte = Console.ReadLine();
+            string besöksSyfte = Kontroller.ValideringAvTextSträng();
 
             Patient patient = kontroller.BokaBesök(personnummer,besöksNummer,datum,anställningsNummer,besöksSyfte);
 
@@ -181,16 +181,16 @@ namespace Presentationslager
         private static void HanteraLäkarbesök()
         {
             Console.Write("Ange besöksnummer för att hantera läkarbesök: ");
-            int besöksnummer = int.Parse(Console.ReadLine());    
+            int besöksnummer = Kontroller.ValideringAvInt();
             LäkarBesök besöket = kontroller.HämtaLäkarbesök(besöksnummer);
 
             if ( besöket != null )
             {
                 Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummer} \nBeöksdatum: {besöket.BesöksDatum} \nBesökssyfte: {besöket.BesöksSyfte}");
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
-                int besöksNummer = int.Parse(Console.ReadLine());
-                
-              if (besöksNummer == besöksnummer && kontroller.Hanterabesök(besöket))
+                int besöksNummer = Kontroller.ValideringAvInt();
+
+                if (besöksNummer == besöksnummer && kontroller.Hanterabesök(besöket))
               {
                  Console.WriteLine($"\nLäkarbesöket med besöksnummer {besöksnummer} är avbokat\n");
               }
@@ -209,9 +209,9 @@ namespace Presentationslager
         private static void UppdateraPatientuppgift()
         {
             Console.Write("Ange patientens patientnummer för uppdatering: ");
-            int patientnummer = int.Parse(Console.ReadLine());
+            int patientnummer = Kontroller.ValideringAvInt();
 
-     
+
             Patient patient = kontroller.HämtaPatient(patientnummer);
 
             if (patient != null)
@@ -239,7 +239,7 @@ namespace Presentationslager
 
                         case 3:
                             Console.Write("Ange nytt telefonnummer: ");
-                            patient.TelefonNummer = int.Parse(Console.ReadLine());
+                            patient.TelefonNummer = Kontroller.ValideringAvInt();
                             break;
 
                         case 4:
