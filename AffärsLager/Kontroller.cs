@@ -51,7 +51,6 @@ namespace AffärsLager
 
         public Patient RegistreraNyPatient(Patient NyPatient)
         {
-           
             unitOfWork.PatientRepository.Add(NyPatient);
             unitOfWork.Save();
             return NyPatient;
