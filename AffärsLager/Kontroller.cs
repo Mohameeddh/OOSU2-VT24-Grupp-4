@@ -32,14 +32,11 @@ namespace AffärsLager
                 return false;
             }
         }
-        public Patient BokaBesök(int patientNummer, int besöksNummer, DateTime datum, int anställningsNummer, string besöksSyfte)
+        public LäkarBesök BokaBesök(LäkarBesök besök)
         {
-            LäkarBesök besök = new LäkarBesök(patientNummer, besöksNummer, datum, anställningsNummer, besöksSyfte);
             unitOfWork.LäkarBesökRepository.Add(besök);
             unitOfWork.Save();
-
-            Patient patient = HämtaPatient(patientNummer);
-            return patient;
+            return besök;
         }
 
         public Patient HämtaPatient(int  patientNummer) 
@@ -56,25 +53,7 @@ namespace AffärsLager
             return NyPatient;
         }
 
-        
-
-        public static string ValideringAvTextSträng()
-        {
-            string inmatning;
-            do
-            {
-                inmatning = Console.ReadLine();
-                if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
-                {
-                    Console.Write("Din inmatning är ogiltig försök igen: ");
-                }
-
-            }
-            while (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit));
-            {
-               return inmatning;
-            }
-        }
+       
 
         public LäkarBesök HämtaLäkarbesök(int besöksNummer)
         {

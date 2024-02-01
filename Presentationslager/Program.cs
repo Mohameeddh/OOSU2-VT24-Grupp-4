@@ -88,7 +88,7 @@ namespace Presentationslager
                 inmatning = Console.ReadLine();
                 if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
                 {
-                    Console.Write("Din inmatning är ogiltig försök igenn: ");
+                    Console.Write("Din inmatning är ogiltig försök igen: ");
                 }
 
             }
@@ -182,8 +182,8 @@ namespace Presentationslager
             Console.Write("Ange besökssyfte: ");
             string besöksSyfte = ValideringAvTextSträng();
 
-
-            Patient patient = kontroller.BokaBesök(patientnummer,besöksNummer,datum,anställningsNummer,besöksSyfte);
+            LäkarBesök NyttBesök = new LäkarBesök(patientnummer, besöksNummer, datum, anställningsNummer, besöksSyfte);
+            LäkarBesök besöken = kontroller.BokaBesök(NyttBesök);
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nLäkarbesöket har bokats framgångsrikt:");
