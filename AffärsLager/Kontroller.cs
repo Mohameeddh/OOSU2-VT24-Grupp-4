@@ -49,36 +49,15 @@ namespace AffärsLager
             return patient;
         }
 
-        public Patient RegistreraNyPatient(string namn, int personNummer, string adress, int telefonNummer, string epost, int patientNummer)
+        public Patient RegistreraNyPatient(Patient NyPatient)
         {
-            Patient NyPatient = new Patient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
+           
             unitOfWork.PatientRepository.Add(NyPatient);
             unitOfWork.Save();
             return NyPatient;
         }
 
-        public static int ValideringAvInt()
-        {
-            int siffra;
-
-            while (true)
-            {
-
-                string input = Console.ReadLine();
-
-                if (int.TryParse(input, out siffra))
-                {
-                     return siffra;
-                }
-
-                else
-                {
-                
-                     Console.Write("fel inmatning försök igen: ");
-
-                }
-            }
-        }
+        
 
         public static string ValideringAvTextSträng()
         {

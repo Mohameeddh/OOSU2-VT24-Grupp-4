@@ -57,6 +57,46 @@ namespace Presentationslager
                 }
             }
         }
+        public static int ValideringAvInt()
+        {
+            int siffra;
+
+            while (true)
+            {
+
+                string input = Console.ReadLine();
+
+                if (int.TryParse(input, out siffra))
+                {
+                    return siffra;
+                }
+
+                else
+                {
+
+                    Console.Write("fel inmatning försök igen: ");
+
+                }
+            }
+        }
+
+        public static string ValideringAvTextSträng()
+        {
+            string inmatning;
+            do
+            {
+                inmatning = Console.ReadLine();
+                if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
+                {
+                    Console.Write("Din inmatning är ogiltig försök igen: ");
+                }
+
+            }
+            while (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit));
+            {
+                return inmatning;
+            }
+        }
 
         private static bool InLoggning()
         {
@@ -128,19 +168,20 @@ namespace Presentationslager
             Console.WriteLine("Boka ett nytt läkarbesök:\n");
 
             Console.Write("Ange patientens patientnummer: ");
-            int patientnummer = Kontroller.ValideringAvInt();
+            int patientnummer = ValideringAvInt();
 
             Console.Write("Ange besöksnummer: ");
-            int besöksNummer = Kontroller.ValideringAvInt();
+            int besöksNummer = ValideringAvInt();
 
             Console.Write("Ange datum (ÅÅÅÅ-MM-DD HH:MM): ");
             DateTime datum = DateTime.Parse(Console.ReadLine());
 
             Console.Write("Ange ditt anställningsnummer: ");
-            int anställningsNummer = Kontroller.ValideringAvInt();
+            int anställningsNummer = ValideringAvInt();
 
             Console.Write("Ange besökssyfte: ");
-            string besöksSyfte = Kontroller.ValideringAvTextSträng();
+            string besöksSyfte = ValideringAvTextSträng();
+
 
             Patient patient = kontroller.BokaBesök(patientnummer,besöksNummer,datum,anställningsNummer,besöksSyfte);
 
@@ -157,24 +198,27 @@ namespace Presentationslager
         public static void RegistreraPatientuppgift()//Denna är klar
         {
             Console.Write("Ange patientens namn: ");
-            string namn = Kontroller.ValideringAvTextSträng();
+            string namn = ValideringAvTextSträng();
 
             Console.Write("Ange patientens personnummer: ");
-            int personNummer = Kontroller.ValideringAvInt();
+            int personNummer = ValideringAvInt();
 
             Console.Write("Ange patientens adress: ");
-            string adress = Kontroller.ValideringAvTextSträng();
+            string adress = ValideringAvTextSträng();
 
             Console.Write("Ange patientens telefonnummer: ");
-            int telefonNummer = Kontroller.ValideringAvInt();
+            int telefonNummer = ValideringAvInt();
 
             Console.Write("Ange patientens epost: ");
-            string epost = Kontroller.ValideringAvTextSträng();
+            string epost = ValideringAvTextSträng();
 
             Console.Write("Ange patientens patientnummer: ");
-            int patientNummer = Kontroller.ValideringAvInt();
+            int patientNummer = ValideringAvInt();
 
-            Patient nyaPatienter = kontroller.RegistreraNyPatient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
+            Patient NyPatient = new Patient(namn, personNummer, adress, telefonNummer, epost, patientNummer);
+
+            Patient nyaPatienter = kontroller.RegistreraNyPatient(NyPatient);
+            
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"\nFöljande patient har registrerats\n Namn: {namn}\n Personnummer: {personNummer}\n Adress: {adress}\n Telefeonnummer: {telefonNummer}\n E-post: {epost}\n Patientnummer: {patientNummer}\n");
@@ -185,14 +229,14 @@ namespace Presentationslager
         private static void HanteraLäkarbesök()
         {
             Console.Write("Ange besöksnummer för att hantera läkarbesök: ");
-            int besöksnummer = Kontroller.ValideringAvInt();
+            int besöksnummer = ValideringAvInt();
             LäkarBesök besöket = kontroller.HämtaLäkarbesök(besöksnummer);
 
             if ( besöket != null )
             {
                 Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummer} \nBeöksdatum: {besöket.BesöksDatum} \nBesökssyfte: {besöket.BesöksSyfte}");
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
-                int besöksNummer = Kontroller.ValideringAvInt();
+                int besöksNummer = ValideringAvInt();
 
                 if (besöksNummer == besöksnummer && kontroller.Hanterabesök(besöket))
                 {
@@ -214,7 +258,7 @@ namespace Presentationslager
         {
 
             Console.Write("Ange besöksnumret: ");
-            int Besök = Kontroller.ValideringAvInt();
+            int Besök = ValideringAvInt();
 
             //for(int i = 0; i < Besök; i++)
             //{
@@ -239,7 +283,7 @@ namespace Presentationslager
         private static void UppdateraPatientuppgift()
         {
             Console.Write("Ange patientens patientnummer för uppdatering: ");
-            int patientnummer = Kontroller.ValideringAvInt();
+            int patientnummer = ValideringAvInt();
 
 
             Patient patient = kontroller.HämtaPatient(patientnummer);
@@ -259,22 +303,22 @@ namespace Presentationslager
                     {
                         case 1:
                             Console.Write("Ange nytt namn: ");
-                            patient.Namn = Kontroller.ValideringAvTextSträng();
+                            patient.Namn = ValideringAvTextSträng();
                             break;
 
                         case 2:
                             Console.Write("Ange ny adress: ");
-                            patient.Adress = Kontroller.ValideringAvTextSträng();
+                            patient.Adress = ValideringAvTextSträng();
                             break;
 
                         case 3:
                             Console.Write("Ange nytt telefonnummer: ");
-                            patient.TelefonNummer = Kontroller.ValideringAvInt();
+                            patient.TelefonNummer = ValideringAvInt();
                             break;
 
                         case 4:
                             Console.Write("Ange ny e-post: ");
-                            patient.Epost = Kontroller.ValideringAvTextSträng();
+                            patient.Epost = ValideringAvTextSträng();
                             break;
 
                         case 5: 
