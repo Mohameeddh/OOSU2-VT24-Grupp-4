@@ -67,10 +67,13 @@ namespace AffärsLager
         {
             try
             {
+               
                 besöksnummer.hanteradeläkarbesök.Add(besöksnummer);
                 unitOfWork.Save();
-                unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
-                //unitOfWork.Save();
+                //unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
+                unitOfWork.Save();
+
+                
                 return true;
             }
             catch (Exception ex)
