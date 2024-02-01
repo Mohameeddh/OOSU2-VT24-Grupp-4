@@ -16,6 +16,7 @@ namespace EntitetLager
         public string BesöksSyfte { get; set; }
 
         public List<Patient> Patienter = new List<Patient>();
+        public List<LäkarBesök> hanteradeläkarbesök { get; set; }
 
 
 
@@ -26,6 +27,7 @@ namespace EntitetLager
             this.BesöksDatum = besöksDatum;
             this.AnställningsNummer = anställningsNummer;
             this.BesöksSyfte = besöksSyfte;
+            hanteradeläkarbesök = new List<LäkarBesök>();
         }
 
         public int BesöksTider(int patientnummer, int besöksNummer, DateTime datum, int anställningsNummer, string besöksSyfte)

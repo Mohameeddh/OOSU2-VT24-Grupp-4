@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
@@ -81,7 +83,8 @@ namespace Presentationslager
                 Console.WriteLine("Tryck 2 för att hantera läkarbesök");
                 Console.WriteLine("Tryck 3 för att registrera patientuppgift");
                 Console.WriteLine("Tryck 4 för att uppdatera patientuppgift");
-                Console.WriteLine("Tryck 5 för att avsluta programmet");
+                Console.WriteLine("Tryck 5 för att visa hanterade läkarbesök");
+                Console.WriteLine("Tryck 6 för att avsluta programmet");
                 Console.Write("Välj ett av de alternativ ovanför: ");
                 while (!int.TryParse(Console.ReadLine(), out menyVal))  
                 {
@@ -105,8 +108,13 @@ namespace Presentationslager
                     case 4:
                          UppdateraPatientuppgift();
                         break;
-                    
-                        case 5:Environment.Exit(0);
+
+                    case 5:
+                        HanteradeLäkarbesök();
+                            break;
+
+
+                        case 6:Environment.Exit(0);
                         break;
 
                     default:
@@ -187,9 +195,9 @@ namespace Presentationslager
                 int besöksNummer = Kontroller.ValideringAvInt();
 
                 if (besöksNummer == besöksnummer && kontroller.Hanterabesök(besöket))
-              {
+                {
                  Console.WriteLine($"\nLäkarbesöket med besöksnummer {besöksnummer} är hanterat och borttaget från systemet\n");
-              }
+                }
                 
                 else
                 {
@@ -200,6 +208,32 @@ namespace Presentationslager
             {
                 Console.WriteLine("Det finns inget läkarbesök med det angivna besöksnummret!\n");
             }
+        }
+
+        public static void HanteradeLäkarbesök()
+        {
+
+            Console.Write("Ange besöksnumret: ");
+            int Besök = Kontroller.ValideringAvInt();
+
+            //for(int i = 0; i < Besök; i++)
+            //{
+                LäkarBesök besöken = kontroller.HämtaLäkarbesök(Besök);
+                if (besöken != null && besöken.hanteradeläkarbesök.Count>0)
+                {
+                        Console.WriteLine("Dessa läkarbesök är behandlade");
+                        Console.WriteLine($"Namn: {besöken.PatientNummer}");
+                        Console.WriteLine($"Patientnummer: {besöken.BesöksDatum},");
+                        Console.WriteLine($"Adress: {besöken.BesöksNummer}");
+                        Console.WriteLine($"Adress: {besöken.BesöksSyfte}");
+                    
+                }
+
+                else
+                {
+                    Console.WriteLine("Det finns inga hanterade läkarbesök");
+                }
+            //}
         }
 
         private static void UppdateraPatientuppgift()

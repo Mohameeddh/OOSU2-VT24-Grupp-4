@@ -105,12 +105,15 @@ namespace AffärsLager
             return besöket;
         }
 
+
         public bool Hanterabesök(LäkarBesök besöksnummer)
         {
             try
             {
+                besöksnummer.hanteradeläkarbesök.Add(besöksnummer);
+                unitOfWork.Save();
                 unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
-                unitOfWork.Save(); 
+                //unitOfWork.Save();
                 return true;
             }
             catch (Exception ex)
