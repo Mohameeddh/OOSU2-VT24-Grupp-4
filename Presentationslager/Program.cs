@@ -88,7 +88,7 @@ namespace Presentationslager
                 inmatning = Console.ReadLine();
                 if (string.IsNullOrEmpty(inmatning) || inmatning.Any(char.IsDigit))
                 {
-                    Console.Write("Din inmatning är ogiltig försök igen: ");
+                    Console.Write("Din inmatning är ogiltig försök igenn: ");
                 }
 
             }
