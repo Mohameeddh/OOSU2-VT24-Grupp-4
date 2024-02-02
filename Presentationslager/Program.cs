@@ -163,7 +163,7 @@ namespace Presentationslager
                 }
             }
         }
-        private static void BokaLäkarbesök()//Denna är klar
+        private static void BokaLäkarbesök()
         {
             Console.WriteLine("Boka ett nytt läkarbesök:\n");
 
@@ -195,7 +195,7 @@ namespace Presentationslager
             Console.ResetColor();
         }
 
-        public static void RegistreraPatientuppgift()//Denna är klar
+        public static void RegistreraPatientuppgift()
         {
             Console.Write("Ange patientens namn: ");
             string namn = ValideringAvTextSträng();

@@ -53,7 +53,6 @@ namespace AffärsLager
             return NyPatient;
         }
 
-       
 
         public LäkarBesök HämtaLäkarbesök(int besöksNummer)
         {
@@ -67,13 +66,11 @@ namespace AffärsLager
         {
             try
             {
-               
                 besöksnummer.hanteradeläkarbesök.Add(besöksnummer);
                 unitOfWork.Save();
                 //unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
                 unitOfWork.Save();
 
-                
                 return true;
             }
             catch (Exception ex)
