@@ -70,7 +70,7 @@ namespace AffärsLager
                
                 besöksnummer.hanteradeläkarbesök.Add(besöksnummer);
                 unitOfWork.Save();
-                //unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
+                unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
                 unitOfWork.Save();
 
                 return true;
