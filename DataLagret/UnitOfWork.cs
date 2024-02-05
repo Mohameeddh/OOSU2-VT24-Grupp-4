@@ -39,9 +39,9 @@ namespace DataLagret
             PatientRepository = new Repository<Patient>();
             VårdsPersonalRepository = new Repository<Läkare>();
             LäkarBesökRepository = new Repository<LäkarBesök>();
-            LäkemedelRepository = new Repository<Läkemedel>();
-            DiagnosRepository = new Repository<Diagnos>();
-            // Initialize the tables if this is the first UnitOfWork.
+            //LäkemedelRepository = new Repository<Läkemedel>();
+            //DiagnosRepository = new Repository<Diagnos>();
+           
             if (PatientRepository.IsEmpty())
             {
                 Fill();
