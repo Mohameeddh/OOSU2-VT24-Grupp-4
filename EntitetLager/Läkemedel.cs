@@ -12,14 +12,11 @@ namespace EntitetLager
         public string MedicinNamn { get; set; }
         public string Dosering { get; set; }
 
-        public Patient PatientNummer { get; set; }
-
-        public Läkemedel(DateTime utskrivningsDatum, string medicinNamn, string dosering, Patient patientNummer)
+        public Läkemedel(DateTime utskrivningsDatum, string medicinNamn, string dosering)
         {
             this.UtskrivningsDatum = utskrivningsDatum;
             this.MedicinNamn = medicinNamn;
             this.Dosering = dosering;
-            this.PatientNummer = patientNummer;
         }
     }
 }
