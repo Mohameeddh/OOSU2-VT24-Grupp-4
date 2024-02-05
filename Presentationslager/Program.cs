@@ -254,8 +254,8 @@ namespace Presentationslager
             }
         }
 
-        public static void HanteradeLäkarbesök()
-        {
+        public static void HanteradeLäkarbesök()//Denna metod ingår INTE i labben, detta är någonting vi själv ville ta med
+        {                                       
 
             Console.Write("Ange besöksnumret: ");
             int Besök = ValideringAvInt();

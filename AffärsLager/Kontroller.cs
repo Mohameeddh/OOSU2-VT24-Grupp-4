@@ -68,9 +68,9 @@ namespace AffärsLager
             try
             {
                
-                besöksnummer.hanteradeläkarbesök.Add(besöksnummer);
-                unitOfWork.Save();
-                //unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
+                //besöksnummer.hanteradeläkarbesök.Add(besöksnummer);
+                //unitOfWork.Save();
+                unitOfWork.LäkarBesökRepository.Remove(besöksnummer);
                 unitOfWork.Save();
 
                 return true;
