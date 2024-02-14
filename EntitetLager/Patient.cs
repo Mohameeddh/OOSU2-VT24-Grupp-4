@@ -13,7 +13,7 @@ namespace EntitetLager
         public string Adress { get; set; }
         public int TelefonNummer { get; set; }
         public string Epost { get; set; }
-        public int PatientNummer { get; set; }
+        public int PatientNummerId { get; set; }
 
         public List<LäkarBesök> LäkarbesökLista = new List<LäkarBesök>();
 
@@ -24,7 +24,7 @@ namespace EntitetLager
             this.Adress = adress;
             this.TelefonNummer = telefonNummer;
             this.Epost = epost;
-            this.PatientNummer = patientNummer;
+            this.PatientNummerId = patientNummer;
         }
 
 

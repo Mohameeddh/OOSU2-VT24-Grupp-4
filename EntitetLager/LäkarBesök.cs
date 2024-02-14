@@ -9,8 +9,9 @@ namespace EntitetLager
 {
     public class LäkarBesök
     {
+
         public int PatientNummer { get; set; }
-        public int BesöksNummer { get; set; }
+        public int BesöksNummerId { get; set; }
         public DateTime BesöksDatum { get; set; }
         public int AnställningsNummer { get; set; }
         public string BesöksSyfte { get; set; }
@@ -23,7 +24,7 @@ namespace EntitetLager
         public LäkarBesök(int patientNummer, int besöksNummer, DateTime besöksDatum, int anställningsNummer, string besöksSyfte)
         {
             this.PatientNummer = patientNummer;
-            this.BesöksNummer = besöksNummer;
+            this.BesöksNummerId = besöksNummer;
             this.BesöksDatum = besöksDatum;
             this.AnställningsNummer = anställningsNummer;
             this.BesöksSyfte = besöksSyfte;

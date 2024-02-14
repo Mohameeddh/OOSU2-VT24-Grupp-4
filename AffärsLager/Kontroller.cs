@@ -19,7 +19,7 @@ namespace AffärsLager
         public bool InLoggning(int anställningsNummer, int lösenord)
         {
             unitOfWork = new UnitOfWork();
-            Läkare läkare = unitOfWork.VårdsPersonalRepository.FirstOrDefault(l => l.AnställningsNummer == anställningsNummer);
+            Läkare läkare = unitOfWork.VårdsPersonalRepository.FirstOrDefault(l => l.AnställningsNummerId == anställningsNummer);
            
             if (läkare != null && läkare.LösenKontroll(lösenord))
             {
@@ -41,7 +41,7 @@ namespace AffärsLager
 
         public Patient HämtaPatient(int  patientNummer) 
         {
-            Patient patient = unitOfWork.PatientRepository.FirstOrDefault(p => p.PatientNummer == patientNummer);
+            Patient patient = unitOfWork.PatientRepository.FirstOrDefault(p => p.PatientNummerId == patientNummer);
             unitOfWork.Save();
             return patient;
         }
@@ -57,7 +57,7 @@ namespace AffärsLager
 
         public LäkarBesök HämtaLäkarbesök(int besöksNummer)
         {
-            LäkarBesök besöket = unitOfWork.LäkarBesökRepository.FirstOrDefault(b => b.BesöksNummer == besöksNummer);
+            LäkarBesök besöket = unitOfWork.LäkarBesökRepository.FirstOrDefault(b => b.BesöksNummerId == besöksNummer);
             unitOfWork.Save();
             return besöket;
         }

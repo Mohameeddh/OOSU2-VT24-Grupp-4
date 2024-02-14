@@ -234,7 +234,7 @@ namespace Presentationslager
 
             if ( besöket != null )
             {
-                Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummer} \nBeöksdatum: {besöket.BesöksDatum} \nBesökssyfte: {besöket.BesöksSyfte}");
+                Console.WriteLine($"Besöksinformation: \nPatientnummer: {besöket.PatientNummer} \nBesöksnummer: {besöket.BesöksNummerId} \nBeöksdatum: {besöket.BesöksDatum} \nBesökssyfte: {besöket.BesöksSyfte}");
                 Console.Write("Ange besöksnummer för att ta bort läkarbesök: ");
                 int besöksNummer = ValideringAvInt();
 
@@ -268,7 +268,7 @@ namespace Presentationslager
                         Console.WriteLine("Dessa läkarbesök är behandlade");
                         Console.WriteLine($"Namn: {besöken.PatientNummer}");
                         Console.WriteLine($"Patientnummer: {besöken.BesöksDatum},");
-                        Console.WriteLine($"Adress: {besöken.BesöksNummer}");
+                        Console.WriteLine($"Adress: {besöken.BesöksNummerId}");
                         Console.WriteLine($"Adress: {besöken.BesöksSyfte}");
                     
                 }
