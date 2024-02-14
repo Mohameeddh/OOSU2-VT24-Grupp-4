@@ -41,12 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Diagnos.cs" />
-    <Compile Include="LäkarBesök.cs" />
-    <Compile Include="Läkemedel.cs" />
-    <Compile Include="Patient.cs" />
+    <Compile Include="Classes\Diagnos.cs" />
+    <Compile Include="Classes\LäkarBesök.cs" />
+    <Compile Include="Classes\Läkemedel.cs" />
+    <Compile Include="Classes\Patient.cs" />
+    <Compile Include="Interface\IDoctors.cs" />
+    <Compile Include="Interface\IDoctorsAppointment.cs" />
+    <Compile Include="Interface\IPatient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Läkare.cs" />
+    <Compile Include="Classes\Läkare.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
